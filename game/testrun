@@ -1,0 +1,10 @@
+from mechanicClasses import *
+import json
+
+with open("mapData.json") as f:
+    mapData = json.load(f)
+
+board = Board()
+board.loadMap(mapData)
+
+print(board.cities)

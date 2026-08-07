@@ -1,0 +1,1116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="32" tileheight="32" infinite="0" nextlayerid="5" nextobjectid="160">
+ <editorsettings>
+  <export target="map.json" format="json"/>
+ </editorsettings>
+ <objectgroup id="3" name="cities" locked="1">
+  <object id="1" name="Essen" type="City" x="750" y="380">
+   <point/>
+  </object>
+  <object id="2" name="Kobenhavn" type="City" x="888" y="175">
+   <point/>
+  </object>
+  <object id="3" name="Stockholm" type="City" x="1088" y="30">
+   <point/>
+  </object>
+  <object id="4" name="Amsterdam" type="City" x="593.333" y="364">
+   <point/>
+  </object>
+  <object id="5" name="London" type="City" x="407.333" y="354">
+   <point/>
+  </object>
+  <object id="6" name="Edinburgh" type="City" x="280.667" y="65.3333">
+   <point/>
+  </object>
+  <object id="7" name="Dieppe" type="City" x="385.333" y="532">
+   <point/>
+  </object>
+  <object id="8" name="Brest" type="City" x="213.333" y="587.333">
+   <point/>
+  </object>
+  <object id="9" name="Paris" type="City" x="482.667" y="618">
+   <point/>
+  </object>
+  <object id="10" name="Bruxelles" type="City" x="551.333" y="456.667">
+   <point/>
+  </object>
+  <object id="11" name="Frankfurt" type="City" x="721.333" y="517.333">
+   <point/>
+  </object>
+  <object id="14" name="Zürich" type="City" x="705.333" y="725.333">
+   <point/>
+  </object>
+  <object id="15" name="Venezia" type="City" x="865.333" y="786.667">
+   <point/>
+  </object>
+  <object id="16" name="Marseille" type="City" x="650.667" y="902.667">
+   <point/>
+  </object>
+  <object id="17" name="Pamplona" type="City" x="359.333" y="912.667">
+   <point/>
+  </object>
+  <object id="18" name="Barcelona" type="City" x="382.667" y="1092">
+   <point/>
+  </object>
+  <object id="19" name="Madrid" type="City" x="170" y="1072">
+   <point/>
+  </object>
+  <object id="20" name="Lisboa" type="City" x="38" y="1116">
+   <point/>
+  </object>
+  <object id="21" name="Cadiz" type="City" x="168.667" y="1211.33">
+   <point/>
+  </object>
+  <object id="22" name="Roma" type="City" x="880" y="961.333">
+   <point/>
+  </object>
+  <object id="23" name="Palermo" type="City" x="953.333" y="1216">
+   <point/>
+  </object>
+  <object id="24" name="Brindisi" type="City" x="1045.33" y="1009.33">
+   <point/>
+  </object>
+  <object id="25" name="Athina" type="City" x="1283.33" y="1158.67">
+   <point/>
+  </object>
+  <object id="26" name="Smyrna" type="City" x="1450" y="1207.33">
+   <point/>
+  </object>
+  <object id="27" name="Angora" type="City" x="1683.33" y="1160">
+   <point/>
+  </object>
+  <object id="28" name="Erzurum" type="City" x="1840.67" y="1114">
+   <point/>
+  </object>
+  <object id="29" name="Constantinople" type="City" x="1535.33" y="1053.33">
+   <point/>
+  </object>
+  <object id="30" name="Sofia" type="City" x="1320" y="940.667">
+   <point/>
+  </object>
+  <object id="31" name="Sarajevo" type="City" x="1192" y="916.667">
+   <point/>
+  </object>
+  <object id="32" name="Bucuresti" type="City" x="1437.33" y="818">
+   <point/>
+  </object>
+  <object id="33" name="Sevastopol" type="City" x="1702.67" y="843.333">
+   <point/>
+  </object>
+  <object id="34" name="Sochi" type="City" x="1876.67" y="871.333">
+   <point/>
+  </object>
+  <object id="35" name="Rostov" type="City" x="1884.67" y="700">
+   <point/>
+  </object>
+  <object id="36" name="Zagrab" type="City" x="1027.33" y="812">
+   <point/>
+  </object>
+  <object id="37" name="Budapest" type="City" x="1144.67" y="682.667">
+   <point/>
+  </object>
+  <object id="38" name="Wien" type="City" x="1054" y="634.667">
+   <point/>
+  </object>
+  <object id="39" name="Kharkov" type="City" x="1805.33" y="594.667">
+   <point/>
+  </object>
+  <object id="40" name="Kyiv" type="City" x="1551.33" y="494">
+   <point/>
+  </object>
+  <object id="41" name="Warszawa" type="City" x="1254" y="390.667">
+   <point/>
+  </object>
+  <object id="42" name="Smolensk" type="City" x="1670" y="350.667">
+   <point/>
+  </object>
+  <object id="43" name="Wilno" type="City" x="1470" y="344.667">
+   <point/>
+  </object>
+  <object id="44" name="Danzig" type="City" x="1158.67" y="260.667">
+   <point/>
+  </object>
+  <object id="45" name="Moskva" type="City" x="1834" y="304.667">
+   <point/>
+  </object>
+  <object id="46" name="Petrograd" type="City" x="1646" y="74">
+   <point/>
+  </object>
+  <object id="47" name="Riga" type="City" x="1322" y="84.6667">
+   <point/>
+  </object>
+  <object id="48" name="Berlin" type="City" x="942" y="405.333">
+   <point/>
+  </object>
+  <object id="49" name="München" type="City" x="828.667" y="602">
+   <point/>
+  </object>
+ </objectgroup>
+ <objectgroup id="4" name="routes">
+  <object id="51" name="EDI-LON" type="Route" x="297.333" y="79.6667">
+   <properties>
+    <property name="cityA" type="object" value="6"/>
+    <property name="cityB" type="object" value="5"/>
+    <property name="colour" propertytype="colours" value="orange"/>
+    <property name="duplicateGroup" value="EDI-LON"/>
+    <property name="length" type="int" value="4"/>
+   </properties>
+   <polyline points="0,0 111.333,254.333"/>
+  </object>
+  <object id="52" name="EDI-LON2" type="Route" x="280" y="89">
+   <properties>
+    <property name="cityA" type="object" value="6"/>
+    <property name="cityB" type="object" value="5"/>
+    <property name="colour" propertytype="colours" value="black"/>
+    <property name="duplicateGroup" value="EDI-LON"/>
+    <property name="length" type="int" value="4"/>
+   </properties>
+   <polyline points="0,0 107.667,254.333"/>
+  </object>
+  <object id="54" name="LON-DIE" type="Route" x="411" y="358">
+   <properties>
+    <property name="cityA" type="object" value="5"/>
+    <property name="cityB" type="object" value="7"/>
+    <property name="colour" propertytype="colours" value="grey"/>
+    <property name="duplicateGroup" value="LON-DIE"/>
+    <property name="length" type="int" value="2"/>
+    <property name="numFerryIcons" type="int" value="1"/>
+   </properties>
+   <polyline points="0,0 -6,83.3333 -22.6667,171"/>
+  </object>
+  <object id="55" name="LON-DIE2" type="Route" x="384.333" y="527.667">
+   <properties>
+    <property name="cityA" type="object" value="5"/>
+    <property name="cityB" type="object" value="7"/>
+    <property name="colour" propertytype="colours" value="grey"/>
+    <property name="duplicateGroup" value="LON-DIE"/>
+    <property name="length" type="int" value="2"/>
+    <property name="numFerryIcons" type="int" value="1"/>
+   </properties>
+   <polyline points="0,0 -7,-91 18.6667,-169.667"/>
+  </object>
+  <object id="56" name="LON-AMS" type="Route" x="412.333" y="354">
+   <properties>
+    <property name="cityA" type="object" value="5"/>
+    <property name="cityB" type="object" value="4"/>
+    <property name="colour" propertytype="colours" value="grey"/>
+    <property name="length" type="int" value="2"/>
+    <property name="numFerryIcons" type="int" value="2"/>
+   </properties>
+   <polyline points="0,0 176,5.33333"/>
+  </object>
+  <object id="57" name="AMS-ESS" type="Route" x="593.667" y="360.667">
+   <properties>
+    <property name="cityA" type="object" value="4"/>
+    <property name="cityB" type="object" value="1"/>
+    <property name="colour" propertytype="colours" value="yellow"/>
+    <property name="length" type="int" value="3"/>
+   </properties>
+   <polyline points="0,0 10,-72.3333 91.3333,-53 154.667,15.6667"/>
+  </object>
+  <object id="60" name="ESS-KOB2" type="Route" x="748" y="373">
+   <properties>
+    <property name="cityA" type="object" value="1"/>
+    <property name="cityB" type="object" value="2"/>
+    <property name="colour" propertytype="colours" value="grey"/>
+    <property name="duplicateGroup" value="ESS-KOB"/>
+    <property name="length" type="int" value="3"/>
+    <property name="numFerryIcons" type="int" value="1"/>
+   </properties>
+   <polyline points="0,0 2,-30 110,-190.5 140,-198.5 135,-172.5 29.5,-18.5 4.5,7"/>
+  </object>
+  <object id="61" name="KOB-STO" type="Route" x="885.5" y="170.5">
+   <properties>
+    <property name="cityA" type="object" value="2"/>
+    <property name="cityB" type="object" value="3"/>
+    <property name="colour" propertytype="colours" value="yellow"/>
+    <property name="duplicateGroup" value="KOB-STO"/>
+    <property name="length" type="int" value="3"/>
+   </properties>
+   <polyline points="0,0 14.5,-30.5 83.5,-93.5 134.5,-132 169.5,-150 199.5,-145"/>
+  </object>
+  <object id="62" name="KOB-STO2" type="Route" x="893.5" y="178.5">
+   <properties>
+    <property name="cityA" type="object" value="2"/>
+    <property name="cityB" type="object" value="3"/>
+    <property name="colour" propertytype="colours" value="white"/>
+    <property name="duplicateGroup" value="KOB-STO"/>
+    <property name="length" type="int" value="3"/>
+   </properties>
+   <polyline points="0,0 92.5,-85.5 161.5,-126 190,-149"/>
+  </object>
+  <object id="63" name="STO-PET" type="Route" x="1093.5" y="30">
+   <properties>
+    <property name="cityA" type="object" value="3"/>
+    <property name="cityB" type="object" value="46"/>
+    <property name="colour" propertytype="colours" value="grey"/>
+    <property name="isTunnel" type="bool" value="true"/>
+    <property name="length" type="int" value="8"/>
+   </properties>
+   <polyline points="0,0 39.5,57 121.5,-0.5 461,-1 534,27.5 550.5,40.5"/>
+  </object>
+  <object id="64" name="PET-MOS" type="Route" x="1653.5" y="76.5">
+   <properties>
+    <property name="cityA" type="object" value="46"/>
+    <property name="cityB" type="object" value="45"/>
+    <property name="colour" propertytype="colours" value="white"/>
+    <property name="length" type="int" value="4"/>
+   </properties>
+   <polyline points="0,0 76,22.5 132.5,68.5 169.5,132.5 178,222"/>
+  </object>
+  <object id="65" name="MOS-SMO" type="Route" x="1828" y="311">
+   <properties>
+    <property name="cityA" type="object" value="45"/>
+    <property name="cityB" type="object" value="42"/>
+    <property name="colour" propertytype="colours" value="orange"/>
+    <property name="length" type="int" value="2"/>
+   </properties>
+   <polyline points="0,0 -65,49 -153,40.5"/>
+  </object>
+  <object id="66" name="SMO-WIL" type="Route" x="1664.5" y="350">
+   <properties>
+    <property name="cityA" type="object" value="42"/>
+    <property name="cityB" type="object" value="43"/>
+    <property name="colour" propertytype="colours" value="yellow"/>
+    <property name="length" type="int" value="3"/>
+   </properties>
+   <polyline points="0,0 -119.5,-82 -162,-17 -191,-9"/>
+  </object>
+  <object id="67" name="PET-WIL" type="Route" x="1645" y="83">
+   <properties>
+    <property name="cityA" type="object" value="46"/>
+    <property name="cityB" type="object" value="43"/>
+    <property name="colour" propertytype="colours" value="blue"/>
+    <property name="length" type="int" value="4"/>
+   </properties>
+   <polyline points="0,0 -10.5,21.5 -164.5,234 -171,254"/>
+  </object>
+  <object id="68" name="PET-RIG" type="Route" x="1327.5" y="82.5">
+   <properties>
+    <property name="cityA" type="object" value="46"/>
+    <property name="cityB" type="object" value="47"/>
+    <property name="colour" propertytype="colours" value="grey"/>
+    <property name="length" type="int" value="4"/>
+   </properties>
+   <polyline points="0,0 19.5,2.5 292,-1 314,-6.5"/>
+  </object>
+  <object id="69" name="RIG-WIL" type="Route" x="1320" y="90">
+   <properties>
+    <property name="cityA" type="object" value="47"/>
+    <property name="cityB" type="object" value="43"/>
+    <property name="colour" propertytype="colours" value="green"/>
+    <property name="length" type="int" value="4"/>
+   </properties>
+   <polyline points="0,0 4,10.5 -10,78.5 20,149 138.5,224.5 151.5,247.5"/>
+  </object>
+  <object id="70" name="RIG-DAN" type="Route" x="1314" y="82.5">
+   <properties>
+    <property name="cityA" type="object" value="47"/>
+    <property name="cityB" type="object" value="44"/>
+    <property name="colour" propertytype="colours" value="black"/>
+    <property name="length" type="int" value="3"/>
+   </properties>
+   <polyline points="0,0 -81.5,28 -127,85.5 -150.5,166"/>
+  </object>
+  <object id="71" name="ESS-KOB" type="Route" x="750" y="374">
+   <properties>
+    <property name="cityA" type="object" value="1"/>
+    <property name="cityB" type="object" value="2"/>
+    <property name="colour" propertytype="colours" value="grey"/>
+    <property name="duplicateGroup" value="ESS-KOB"/>
+    <property name="length" type="int" value="3"/>
+    <property name="numFerryIcons" type="int" value="1"/>
+   </properties>
+   <polyline points="0,0 51.5,-105.5 134,-202"/>
+  </object>
+  <object id="72" name="DAN-BER" type="Route" x="1158.5" y="252">
+   <properties>
+    <property name="cityA" type="object" value="44"/>
+    <property name="cityB" type="object" value="48"/>
+    <property name="colour" propertytype="colours" value="grey"/>
+    <property name="length" type="int" value="4"/>
+   </properties>
+   <polyline points="0,0 -72.5,-21.5 -156.5,-6.5 -200,56 -212,123.5 -215.5,152.5"/>
+  </object>
+  <object id="73" name="DAN-WAR" type="Route" x="1168.5" y="259.5">
+   <properties>
+    <property name="cityA" type="object" value="41"/>
+    <property name="cityB" type="object" value="44"/>
+    <property name="colour" propertytype="colours" value="grey"/>
+    <property name="length" type="int" value="2"/>
+   </properties>
+   <polyline points="0,0 71,37.5 85,119"/>
+  </object>
+  <object id="74" name="WAR-WIL" type="Route" x="1258.5" y="387.5">
+   <properties>
+    <property name="cityA" type="object" value="41"/>
+    <property name="cityB" type="object" value="43"/>
+    <property name="colour" propertytype="colours" value="red"/>
+    <property name="length" type="int" value="3"/>
+   </properties>
+   <polyline points="0,0 20.5,-9.5 49.5,-76.5 127.5,-90.5 185.5,-51 209,-48"/>
+  </object>
+  <object id="75" name="WIL-KYI" type="Route" x="1476.5" y="348.5">
+   <properties>
+    <property name="cityA" type="object" value="43"/>
+    <property name="cityB" type="object" value="40"/>
+    <property name="colour" propertytype="colours" value="grey"/>
+    <property name="length" type="int" value="2"/>
+   </properties>
+   <polyline points="0,0 74,48.5 71.5,133"/>
+  </object>
+  <object id="76" name="SMO-KYI" type="Route" x="1669.5" y="359">
+   <properties>
+    <property name="cityA" type="object" value="42"/>
+    <property name="cityB" type="object" value="40"/>
+    <property name="colour" propertytype="colours" value="red"/>
+    <property name="length" type="int" value="3"/>
+   </properties>
+   <polyline points="0,0 27,79.5 -28.5,141.5 -114.5,134"/>
+  </object>
+  <object id="77" name="MOS-KHA" type="Route" x="1835.5" y="308.5">
+   <properties>
+    <property name="cityA" type="object" value="45"/>
+    <property name="cityB" type="object" value="39"/>
+    <property name="colour" propertytype="colours" value="grey"/>
+    <property name="length" type="int" value="4"/>
+   </properties>
+   <polyline points="0,0 37,65 50.5,139.5 33.5,210.5 -17,268.5"/>
+  </object>
+  <object id="79" name="KHA-ROS" type="Route" x="1814" y="596">
+   <properties>
+    <property name="cityA" type="object" value="39"/>
+    <property name="cityB" type="object" value="35"/>
+    <property name="colour" propertytype="colours" value="green"/>
+    <property name="length" type="int" value="2"/>
+   </properties>
+   <polyline points="0,0 74.5,0 72.5,95.5"/>
+  </object>
+  <object id="80" name="BER-ESS" type="Route" x="936.5" y="403">
+   <properties>
+    <property name="cityA" type="object" value="48"/>
+    <property name="cityB" type="object" value="1"/>
+    <property name="colour" propertytype="colours" value="blue"/>
+    <property name="length" type="int" value="2"/>
+   </properties>
+   <polyline points="0,0 -16,-19.5 -145.5,-35.5 -182.5,-26"/>
+  </object>
+  <object id="81" name="AMS-BRU" type="Route" x="553.5" y="446">
+   <properties>
+    <property name="cityA" type="object" value="4"/>
+    <property name="cityB" type="object" value="10"/>
+    <property name="colour" propertytype="colours" value="black"/>
+    <property name="length" type="int" value="1"/>
+   </properties>
+   <polyline points="0,0 34,-74.5"/>
+  </object>
+  <object id="82" name="BRU-DIE" type="Route" x="545.5" y="450">
+   <properties>
+    <property name="cityA" type="object" value="10"/>
+    <property name="cityB" type="object" value="7"/>
+    <property name="colour" propertytype="colours" value="green"/>
+    <property name="length" type="int" value="2"/>
+   </properties>
+   <polyline points="0,0 -22.5,-5.5 -132,73 -158.5,79"/>
+  </object>
+  <object id="83" name="DIE-BRE" type="Route" x="381.5" y="526.5">
+   <properties>
+    <property name="cityA" type="object" value="7"/>
+    <property name="cityB" type="object" value="8"/>
+    <property name="colour" propertytype="colours" value="orange"/>
+    <property name="length" type="int" value="2"/>
+   </properties>
+   <polyline points="0,0 -28,-6.5 -95,-2 -154.5,32 -168.5,54"/>
+  </object>
+  <object id="84" name="DIE-PAR" type="Route" x="395.5" y="537">
+   <properties>
+    <property name="cityA" type="object" value="7"/>
+    <property name="cityB" type="object" value="9"/>
+    <property name="colour" propertytype="colours" value="pink"/>
+    <property name="length" type="int" value="1"/>
+   </properties>
+   <polyline points="0,0 77,69"/>
+  </object>
+  <object id="85" name="PAR-BRU" type="Route" x="481.5" y="610">
+   <properties>
+    <property name="cityA" type="object" value="9"/>
+    <property name="cityB" type="object" value="10"/>
+    <property name="colour" propertytype="colours" value="red"/>
+    <property name="duplicateGroup" value="PAR-BRU"/>
+    <property name="length" type="int" value="2"/>
+   </properties>
+   <polyline points="0,0 19.5,-14 53.5,-72.5 80,-132.5 69,-156.5"/>
+  </object>
+  <object id="87" name="PAR-BRU2" type="Route" x="479.5" y="611.5">
+   <properties>
+    <property name="cityA" type="object" value="9"/>
+    <property name="cityB" type="object" value="10"/>
+    <property name="colour" propertytype="colours" value="yellow"/>
+    <property name="duplicateGroup" value="PAR-BRU"/>
+    <property name="length" type="int" value="2"/>
+   </properties>
+   <polyline points="0,0 -3.5,-31 57.5,-146 70.5,-159"/>
+  </object>
+  <object id="88" name="FRA-AMS" type="Route" x="719.5" y="505.5">
+   <properties>
+    <property name="cityA" type="object" value="4"/>
+    <property name="cityB" type="object" value="11"/>
+    <property name="colour" propertytype="colours" value="white"/>
+    <property name="length" type="int" value="2"/>
+   </properties>
+   <polyline points="0,0 -10,-30.5 -109,-125 -127,-144.5"/>
+  </object>
+  <object id="89" name="KYI-KHA" type="Route" x="1550.67" y="502.667">
+   <properties>
+    <property name="cityA" type="object" value="40"/>
+    <property name="cityB" type="object" value="39"/>
+    <property name="colour" propertytype="colours" value="grey"/>
+    <property name="length" type="int" value="4"/>
+   </properties>
+   <polyline points="0,0 24.6667,69 90.6667,114 163.667,117 247.333,94"/>
+  </object>
+  <object id="90" name="KYI-WAR" type="Route" x="1540" y="491.333">
+   <properties>
+    <property name="cityA" type="object" value="41"/>
+    <property name="cityB" type="object" value="40"/>
+    <property name="colour" propertytype="colours" value="grey"/>
+    <property name="length" type="int" value="4"/>
+   </properties>
+   <polyline points="0,0 -17.6667,-13.6667 -82.6667,-17.6667 -154.667,-10.3333 -227,-39 -282,-98.6667"/>
+  </object>
+  <object id="91" name="BER-WAR" type="Route" x="1250" y="391.333">
+   <properties>
+    <property name="cityA" type="object" value="48"/>
+    <property name="cityB" type="object" value="41"/>
+    <property name="colour" propertytype="colours" value="pink"/>
+    <property name="duplicateGroup" value="BER-WAR"/>
+    <property name="length" type="int" value="4"/>
+   </properties>
+   <polyline points="0,0 -11.6667,-20 -81.6667,-30.3333 -151.667,-30.6667 -223,-20.3333 -291.333,2.66667 -303,12.3333"/>
+  </object>
+  <object id="93" name="BER-WAR2" type="Route" x="1250.5" y="395">
+   <properties>
+    <property name="cityA" type="object" value="48"/>
+    <property name="cityB" type="object" value="41"/>
+    <property name="colour" propertytype="colours" value="yellow"/>
+    <property name="duplicateGroup" value="BER-WAR"/>
+    <property name="length" type="int" value="4"/>
+   </properties>
+   <polyline points="0,0 -15.5,8.5 -80.5,-2.5 -154,-3 -217.5,7 -284,27 -306.5,12.5"/>
+  </object>
+  <object id="94" name="ESS-FRA" type="Route" x="756.5" y="385">
+   <properties>
+    <property name="cityA" type="object" value="1"/>
+    <property name="cityB" type="object" value="11"/>
+    <property name="colour" propertytype="colours" value="green"/>
+    <property name="length" type="int" value="2"/>
+   </properties>
+   <polyline points="0,0 18.5,8 42,61 -30,90.5 -34,126.5"/>
+  </object>
+  <object id="95" name="BRU-FRA" type="Route" x="557" y="455.5">
+   <properties>
+    <property name="cityA" type="object" value="10"/>
+    <property name="cityB" type="object" value="11"/>
+    <property name="colour" propertytype="colours" value="blue"/>
+    <property name="length" type="int" value="2"/>
+   </properties>
+   <polyline points="0,0 11,10 84,-8.5 134,40 157,55.5"/>
+  </object>
+  <object id="96" name="BRE-PAR" type="Route" x="221.333" y="587.333">
+   <properties>
+    <property name="cityA" type="object" value="8"/>
+    <property name="cityB" type="object" value="9"/>
+    <property name="colour" propertytype="colours" value="black"/>
+    <property name="length" type="int" value="3"/>
+   </properties>
+   <polyline points="0,0 77.3333,5.66667 150.333,13 219,21.3333 256.667,29.6667"/>
+  </object>
+  <object id="97" name="PAR-FRA" type="Route" x="491.333" y="617.333">
+   <properties>
+    <property name="cityA" type="object" value="9"/>
+    <property name="cityB" type="object" value="11"/>
+    <property name="colour" propertytype="colours" value="white"/>
+    <property name="duplicateGroup" value="PAR-FRA"/>
+    <property name="length" type="int" value="3"/>
+   </properties>
+   <polyline points="0,0 34.6667,-8 92,-23.3333 152.667,-60 206,-105.333 223.333,-100.667"/>
+  </object>
+  <object id="98" name="PAR-FRA" type="Route" x="482" y="619.333">
+   <properties>
+    <property name="cityA" type="object" value="9"/>
+    <property name="cityB" type="object" value="11"/>
+    <property name="colour" propertytype="colours" value="orange"/>
+    <property name="duplicateGroup" value="PAR-FRA"/>
+    <property name="length" type="int" value="3"/>
+   </properties>
+   <polyline points="0,0 42.6667,15.3333 114,-4 175.333,-41.3333 230.667,-80.6667 242,-102.667"/>
+  </object>
+  <object id="99" name="FRA-MUN" type="Route" x="730" y="520">
+   <properties>
+    <property name="cityA" type="object" value="11"/>
+    <property name="cityB" type="object" value="49"/>
+    <property name="colour" propertytype="colours" value="pink"/>
+    <property name="length" type="int" value="2"/>
+   </properties>
+   <polyline points="0,0 19.3333,89.3333 70.6667,74 98,76.6667"/>
+  </object>
+  <object id="100" name="FRA-BER" type="Route" x="728.667" y="512">
+   <properties>
+    <property name="cityA" type="object" value="11"/>
+    <property name="cityB" type="object" value="48"/>
+    <property name="colour" propertytype="colours" value="black"/>
+    <property name="duplicateGroup" value="FRA-BER"/>
+    <property name="length" type="int" value="3"/>
+   </properties>
+   <polyline points="0,0 13.3333,-15.3333 190,-100.667 210,-103.333"/>
+  </object>
+  <object id="101" name="FRA-BER2" type="Route" x="936.667" y="416">
+   <properties>
+    <property name="cityA" type="object" value="11"/>
+    <property name="cityB" type="object" value="48"/>
+    <property name="colour" propertytype="colours" value="red"/>
+    <property name="duplicateGroup" value="FRA-BER"/>
+    <property name="length" type="int" value="3"/>
+   </properties>
+   <polyline points="0,0 -6.66667,25.3333 -188,108.667 -206.667,101.333"/>
+  </object>
+  <object id="102" name="BER-WIE" type="Route" x="945.333" y="416">
+   <properties>
+    <property name="cityA" type="object" value="48"/>
+    <property name="cityB" type="object" value="38"/>
+    <property name="colour" propertytype="colours" value="green"/>
+    <property name="length" type="int" value="3"/>
+   </properties>
+   <polyline points="0,0 18,76 53.3333,138 96.6667,194 103.333,211.333"/>
+  </object>
+  <object id="103" name="WAR-WIE" type="Route" x="1056.67" y="623.333">
+   <properties>
+    <property name="cityA" type="object" value="41"/>
+    <property name="cityB" type="object" value="38"/>
+    <property name="colour" propertytype="colours" value="blue"/>
+    <property name="length" type="int" value="4"/>
+   </properties>
+   <polyline points="0,0 67.3333,-42.6667 120,-90 162,-150.667 196.667,-210 196,-227.333"/>
+  </object>
+  <object id="104" name="MUN-WIE" type="Route" x="840" y="598">
+   <properties>
+    <property name="cityA" type="object" value="49"/>
+    <property name="cityB" type="object" value="38"/>
+    <property name="colour" propertytype="colours" value="orange"/>
+    <property name="length" type="int" value="3"/>
+   </properties>
+   <polyline points="0,0 42.6667,66 127.333,76 185.333,28 204.667,29.3333"/>
+  </object>
+  <object id="105" name="WIE-BUD" type="Route" x="1065.33" y="631.333">
+   <properties>
+    <property name="cityA" type="object" value="38"/>
+    <property name="cityB" type="object" value="37"/>
+    <property name="colour" propertytype="colours" value="red"/>
+    <property name="duplicateGroup" value="WIE-BUD"/>
+    <property name="length" type="int" value="1"/>
+   </properties>
+   <polyline points="0,0 14,4 61.3333,32.6667 73.3333,43.3333"/>
+  </object>
+  <object id="106" name="WIE-BUD2" type="Route" x="1132.67" y="682">
+   <properties>
+    <property name="cityA" type="object" value="37"/>
+    <property name="cityB" type="object" value="38"/>
+    <property name="colour" propertytype="colours" value="white"/>
+    <property name="duplicateGroup" value="WIE-BUD"/>
+    <property name="length" type="int" value="1"/>
+   </properties>
+   <polyline points="0,0 -19.3333,9.33333 -74,-24.6667 -79.3333,-46"/>
+  </object>
+  <object id="107" name="BUD-KYI" type="Route" x="1147.33" y="670.667">
+   <properties>
+    <property name="cityA" type="object" value="37"/>
+    <property name="cityB" type="object" value="40"/>
+    <property name="colour" propertytype="colours" value="grey"/>
+    <property name="isTunnel" type="bool" value="true"/>
+    <property name="length" type="int" value="6"/>
+   </properties>
+   <polyline points="0,0 5.33333,-20 44.6667,-63.3333 104,-104.667 167.333,-138.667 237.333,-164.667 309.333,-168.667 380,-166 395.333,-174"/>
+  </object>
+  <object id="108" name="KYI-BUC" type="Route" x="1546" y="503.333">
+   <properties>
+    <property name="cityA" type="object" value="40"/>
+    <property name="cityB" type="object" value="32"/>
+    <property name="colour" propertytype="colours" value="grey"/>
+    <property name="length" type="int" value="4"/>
+   </properties>
+   <polyline points="0,0 -26,22.6667 -115.333,282 -106.667,306"/>
+  </object>
+  <object id="109" name="MUN-ZUR" type="Route" x="829.333" y="605.333">
+   <properties>
+    <property name="cityA" type="object" value="14"/>
+    <property name="cityB" type="object" value="49"/>
+    <property name="colour" propertytype="colours" value="yellow"/>
+    <property name="isTunnel" type="bool" value="true"/>
+    <property name="length" type="int" value="2"/>
+   </properties>
+   <polyline points="0,0 -12,14.6667 -110,100 -127.333,115.333"/>
+  </object>
+  <object id="110" name="ZUR-PAR" type="Route" x="488.667" y="622.667">
+   <properties>
+    <property name="cityA" type="object" value="9"/>
+    <property name="cityB" type="object" value="14"/>
+    <property name="colour" propertytype="colours" value="grey"/>
+    <property name="isTunnel" type="bool" value="true"/>
+    <property name="length" type="int" value="3"/>
+   </properties>
+   <polyline points="0,0 26,20 55.3333,69.3333 124.667,109.333 198.667,109.333 208.667,95.3333"/>
+  </object>
+  <object id="111" name="MUN-VEN" type="Route" x="832" y="612.667">
+   <properties>
+    <property name="cityA" type="object" value="49"/>
+    <property name="cityB" type="object" value="15"/>
+    <property name="colour" propertytype="colours" value="blue"/>
+    <property name="isTunnel" type="bool" value="true"/>
+    <property name="length" type="int" value="2"/>
+   </properties>
+   <polyline points="0,0 0.666667,18.6667 26,151.333 33.3333,160.667"/>
+  </object>
+  <object id="112" name="ZUR-VEN" type="Route" x="713.333" y="724">
+   <properties>
+    <property name="cityA" type="object" value="14"/>
+    <property name="cityB" type="object" value="15"/>
+    <property name="colour" propertytype="colours" value="green"/>
+    <property name="isTunnel" type="bool" value="true"/>
+    <property name="length" type="int" value="2"/>
+   </properties>
+   <polyline points="0,0 70.6667,35.3333 130,68.6667 143.333,62"/>
+  </object>
+  <object id="113" name="VEN-ZAG" type="Route" x="869.333" y="778">
+   <properties>
+    <property name="cityA" type="object" value="15"/>
+    <property name="cityB" type="object" value="36"/>
+    <property name="colour" propertytype="colours" value="grey"/>
+    <property name="length" type="int" value="2"/>
+   </properties>
+   <polyline points="0,0 80,-22.6667 140,17.3333 154,18.6667"/>
+  </object>
+  <object id="114" name="ZAG-WIE" type="Route" x="1028.67" y="798">
+   <properties>
+    <property name="cityA" type="object" value="38"/>
+    <property name="cityB" type="object" value="36"/>
+    <property name="colour" propertytype="colours" value="grey"/>
+    <property name="length" type="int" value="2"/>
+   </properties>
+   <polyline points="0,0 10,-151.333 20.6667,-158"/>
+  </object>
+  <object id="115" name="ZAG-BUD" type="Route" x="1036.67" y="805.333">
+   <properties>
+    <property name="cityA" type="object" value="36"/>
+    <property name="cityB" type="object" value="37"/>
+    <property name="colour" propertytype="colours" value="orange"/>
+    <property name="length" type="int" value="2"/>
+   </properties>
+   <polyline points="0,0 59.3333,-48 94.6667,-110.667"/>
+  </object>
+  <object id="116" name="BUD-BUC" type="Route" x="1155.33" y="683.333">
+   <properties>
+    <property name="cityA" type="object" value="37"/>
+    <property name="cityB" type="object" value="32"/>
+    <property name="colour" propertytype="colours" value="grey"/>
+    <property name="isTunnel" type="bool" value="true"/>
+    <property name="length" type="int" value="4"/>
+   </properties>
+   <polyline points="0,0 20.6667,-4 258,125.333 275.333,125.333"/>
+  </object>
+  <object id="117" name="BUC-SEV" type="Route" x="1448" y="810.667">
+   <properties>
+    <property name="cityA" type="object" value="32"/>
+    <property name="cityB" type="object" value="33"/>
+    <property name="colour" propertytype="colours" value="white"/>
+    <property name="length" type="int" value="4"/>
+   </properties>
+   <polyline points="0,0 56.6667,-60 132.667,-76.6667 199.333,-44 244,7.33333 249.333,19.3333"/>
+  </object>
+  <object id="118" name="ROS-SEV" type="Route" x="1704.67" y="834.667">
+   <properties>
+    <property name="cityA" type="object" value="35"/>
+    <property name="cityB" type="object" value="33"/>
+    <property name="colour" propertytype="colours" value="grey"/>
+    <property name="length" type="int" value="4"/>
+   </properties>
+   <polyline points="0,0 16.6667,-15.3333 34.6667,-168 158.667,-148 172,-146"/>
+  </object>
+  <object id="119" name="ROS-SOC" type="Route" x="1888" y="703.333">
+   <properties>
+    <property name="cityA" type="object" value="35"/>
+    <property name="cityB" type="object" value="34"/>
+    <property name="colour" propertytype="colours" value="grey"/>
+    <property name="length" type="int" value="2"/>
+   </properties>
+   <polyline points="0,0 -12,158.667"/>
+  </object>
+  <object id="120" name="SEV-SOC" type="Route" x="1714" y="844">
+   <properties>
+    <property name="cityA" type="object" value="33"/>
+    <property name="cityB" type="object" value="34"/>
+    <property name="colour" propertytype="colours" value="grey"/>
+    <property name="length" type="int" value="2"/>
+    <property name="numFerryIcons" type="int" value="1"/>
+   </properties>
+   <polyline points="0,0 153.333,25.3333"/>
+  </object>
+  <object id="121" name="BRE-PAM" type="Route" x="217.333" y="594.667">
+   <properties>
+    <property name="cityA" type="object" value="8"/>
+    <property name="cityB" type="object" value="17"/>
+    <property name="colour" propertytype="colours" value="pink"/>
+    <property name="length" type="int" value="4"/>
+   </properties>
+   <polyline points="0,0 14.6667,16.6667 78.6667,39.3333 119.333,101.333 131.333,173.333 126.667,244.667 107.333,289.333 137.333,309.333"/>
+  </object>
+  <object id="123" name="PAR-PAM" type="Route" x="474" y="623.333">
+   <properties>
+    <property name="cityA" type="object" value="9"/>
+    <property name="cityB" type="object" value="17"/>
+    <property name="colour" propertytype="colours" value="blue"/>
+    <property name="duplicateGroup" value="PAR-PAM"/>
+    <property name="length" type="int" value="4"/>
+   </properties>
+   <polyline points="0,0 -30.6667,2 -36.6667,69.3333 -59.3333,138 -88,203.333 -126.667,260.667 -111.333,278"/>
+  </object>
+  <object id="124" name="PAR-PAM2" type="Route" x="366.667" y="906.667">
+   <properties>
+    <property name="cityA" type="object" value="17"/>
+    <property name="cityB" type="object" value="9"/>
+    <property name="colour" propertytype="colours" value="green"/>
+    <property name="duplicateGroup" value="PAR-PAM"/>
+    <property name="length" type="int" value="4"/>
+   </properties>
+   <polyline points="0,0 44.6667,-63.3333 74,-133.333 95.3333,-206 101.333,-272"/>
+  </object>
+  <object id="125" name="SAR-BUD" type="Route" x="1189.33" y="912.667">
+   <properties>
+    <property name="cityA" type="object" value="37"/>
+    <property name="cityB" type="object" value="31"/>
+    <property name="colour" propertytype="colours" value="pink"/>
+    <property name="length" type="int" value="3"/>
+   </properties>
+   <polyline points="0,0 -36.6667,-222"/>
+  </object>
+  <object id="126" name="SAR-ZAG" type="Route" x="1182" y="920">
+   <properties>
+    <property name="cityA" type="object" value="36"/>
+    <property name="cityB" type="object" value="31"/>
+    <property name="colour" propertytype="colours" value="red"/>
+    <property name="length" type="int" value="3"/>
+   </properties>
+   <polyline points="0,0 -79.3333,22 -150,-23.3333 -154,-103.333"/>
+  </object>
+  <object id="128" name="ZUR-MAR" type="Route" x="704" y="729.333">
+   <properties>
+    <property name="cityA" type="object" value="14"/>
+    <property name="cityB" type="object" value="16"/>
+    <property name="colour" propertytype="colours" value="pink"/>
+    <property name="isTunnel" type="bool" value="true"/>
+    <property name="length" type="int" value="2"/>
+   </properties>
+   <polyline points="0,0 -35.3333,144.667 -52,162"/>
+  </object>
+  <object id="129" name="PAR-MAR" type="Route" x="645.333" y="888.667">
+   <properties>
+    <property name="cityA" type="object" value="16"/>
+    <property name="cityB" type="object" value="9"/>
+    <property name="colour" propertytype="colours" value="grey"/>
+    <property name="length" type="int" value="4"/>
+   </properties>
+   <polyline points="0,0 -35.3333,-65.3333 -110,-101.333 -150.667,-166 -150.667,-238.667 -160.667,-263.333"/>
+  </object>
+  <object id="130" name="SAR-SOF" type="Route" x="1198" y="914">
+   <properties>
+    <property name="cityA" type="object" value="31"/>
+    <property name="cityB" type="object" value="30"/>
+    <property name="colour" propertytype="colours" value="grey"/>
+    <property name="isTunnel" type="bool" value="true"/>
+    <property name="length" type="int" value="2"/>
+   </properties>
+   <polyline points="0,0 88,-41.3333 111.333,8.66667"/>
+  </object>
+  <object id="131" name="BUC-SOF" type="Route" x="1326.67" y="929.333">
+   <properties>
+    <property name="cityA" type="object" value="30"/>
+    <property name="cityB" type="object" value="32"/>
+    <property name="colour" propertytype="colours" value="grey"/>
+    <property name="isTunnel" type="bool" value="true"/>
+    <property name="length" type="int" value="2"/>
+   </properties>
+   <polyline points="0,0 84,-24.6667 91.3333,-104"/>
+  </object>
+  <object id="132" name="MAR-PAM" type="Route" x="366.667" y="912">
+   <properties>
+    <property name="cityA" type="object" value="17"/>
+    <property name="cityB" type="object" value="16"/>
+    <property name="colour" propertytype="colours" value="red"/>
+    <property name="length" type="int" value="2"/>
+   </properties>
+   <polyline points="0,0 70.6667,24.6667 100.667,-66 184.667,-64.6667 245.333,-32 271.333,-15.3333"/>
+  </object>
+  <object id="133" name="VEN-ROM" type="Route" x="864.667" y="792.667">
+   <properties>
+    <property name="cityA" type="object" value="15"/>
+    <property name="cityB" type="object" value="22"/>
+    <property name="colour" propertytype="colours" value="black"/>
+    <property name="length" type="int" value="2"/>
+   </properties>
+   <polyline points="0,0 24,145.333"/>
+  </object>
+  <object id="134" name="MAR-ROM" type="Route" x="661.333" y="899.333">
+   <properties>
+    <property name="cityA" type="object" value="16"/>
+    <property name="cityB" type="object" value="22"/>
+    <property name="colour" propertytype="colours" value="grey"/>
+    <property name="isTunnel" type="bool" value="true"/>
+    <property name="length" type="int" value="4"/>
+   </properties>
+   <polyline points="0,0 114.667,-78.6667 200,40"/>
+  </object>
+  <object id="135" name="MAR-BAR" type="Route" x="645.333" y="910.667">
+   <properties>
+    <property name="cityA" type="object" value="16"/>
+    <property name="cityB" type="object" value="18"/>
+    <property name="colour" propertytype="colours" value="grey"/>
+    <property name="length" type="int" value="4"/>
+   </properties>
+   <polyline points="0,0 -87.3333,18.6667 -146,58 -204.667,103.333 -252.667,166"/>
+  </object>
+  <object id="136" name="BAR-PAM" type="Route" x="382.667" y="1073.33">
+   <properties>
+    <property name="cityA" type="object" value="18"/>
+    <property name="cityB" type="object" value="17"/>
+    <property name="colour" propertytype="colours" value="grey"/>
+    <property name="isTunnel" type="bool" value="true"/>
+    <property name="length" type="int" value="2"/>
+   </properties>
+   <polyline points="0,0 -21.3333,-157.333"/>
+  </object>
+  <object id="137" name="BAR-MAD" type="Route" x="373.333" y="1083.33">
+   <properties>
+    <property name="cityA" type="object" value="18"/>
+    <property name="cityB" type="object" value="19"/>
+    <property name="colour" propertytype="colours" value="yellow"/>
+    <property name="length" type="int" value="2"/>
+   </properties>
+   <polyline points="0,0 -154,-7.33333 -193.333,-14.6667"/>
+  </object>
+  <object id="138" name="PAM-MAD" type="Route" x="345.333" y="923.333">
+   <properties>
+    <property name="cityA" type="object" value="17"/>
+    <property name="cityB" type="object" value="19"/>
+    <property name="colour" propertytype="colours" value="white"/>
+    <property name="duplicateGroup" value="PAM-MAD"/>
+    <property name="isTunnel" type="bool" value="true"/>
+    <property name="length" type="int" value="3"/>
+   </properties>
+   <polyline points="0,0 -65.3333,34 -110.667,85.3333 -153.333,140"/>
+  </object>
+  <object id="139" name="PAM-MAD2" type="Route" x="326.667" y="902.667">
+   <properties>
+    <property name="cityA" type="object" value="17"/>
+    <property name="cityB" type="object" value="19"/>
+    <property name="colour" propertytype="colours" value="black"/>
+    <property name="duplicateGroup" value="PAM-MAD"/>
+    <property name="isTunnel" type="bool" value="true"/>
+    <property name="length" type="int" value="3"/>
+   </properties>
+   <polyline points="0,0 -59.3333,40 -110,88.6667 -149.333,138"/>
+  </object>
+  <object id="140" name="MAD-LIS" type="Route" x="162" y="1064.67">
+   <properties>
+    <property name="cityA" type="object" value="19"/>
+    <property name="cityB" type="object" value="20"/>
+    <property name="colour" propertytype="colours" value="pink"/>
+    <property name="length" type="int" value="3"/>
+   </properties>
+   <polyline points="0,0 -68,-56 -130.667,-55.3333 -129.333,14"/>
+  </object>
+  <object id="141" name="LIS-CAD" type="Route" x="50.6667" y="1130">
+   <properties>
+    <property name="cityA" type="object" value="21"/>
+    <property name="cityB" type="object" value="20"/>
+    <property name="colour" propertytype="colours" value="blue"/>
+    <property name="length" type="int" value="2"/>
+   </properties>
+   <polyline points="0,0 22.6667,60 98.6667,78"/>
+  </object>
+  <object id="142" name="CAD-MAD" type="Route" x="172" y="1210">
+   <properties>
+    <property name="cityA" type="object" value="19"/>
+    <property name="cityB" type="object" value="21"/>
+    <property name="colour" propertytype="colours" value="orange"/>
+    <property name="length" type="int" value="3"/>
+   </properties>
+   <polyline points="0,0 92,-25.3333 67.3333,-91.3333 13.3333,-132.667"/>
+  </object>
+  <object id="143" name="ROM-BRI" type="Route" x="910.667" y="943.333">
+   <properties>
+    <property name="cityA" type="object" value="22"/>
+    <property name="cityB" type="object" value="24"/>
+    <property name="colour" propertytype="colours" value="white"/>
+    <property name="length" type="int" value="2"/>
+   </properties>
+   <polyline points="0,0 74,-7.33333 119.333,48"/>
+  </object>
+  <object id="144" name="ROM-PAL" type="Route" x="894" y="968">
+   <properties>
+    <property name="cityA" type="object" value="22"/>
+    <property name="cityB" type="object" value="23"/>
+    <property name="colour" propertytype="colours" value="grey"/>
+    <property name="length" type="int" value="4"/>
+    <property name="numFerryIcons" type="int" value="1"/>
+   </properties>
+   <polyline points="0,0 64.6667,29.3333 108.667,88.6667 106,165.333 62.6667,222"/>
+  </object>
+  <object id="145" name="BRI-PAL" type="Route" x="978" y="1203.33">
+   <properties>
+    <property name="cityA" type="object" value="23"/>
+    <property name="cityB" type="object" value="24"/>
+    <property name="colour" propertytype="colours" value="grey"/>
+    <property name="length" type="int" value="3"/>
+    <property name="numFerryIcons" type="int" value="1"/>
+   </properties>
+   <polyline points="0,0 52,-66.6667 98,-108 67.3333,-176"/>
+  </object>
+  <object id="146" name="BRI-ATH" type="Route" x="1068" y="1018">
+   <properties>
+    <property name="cityA" type="object" value="24"/>
+    <property name="cityB" type="object" value="25"/>
+    <property name="colour" propertytype="colours" value="grey"/>
+    <property name="length" type="int" value="4"/>
+    <property name="numFerryIcons" type="int" value="1"/>
+   </properties>
+   <polyline points="0,0 54.6667,133.333 133.333,154.667 201.333,143.333"/>
+  </object>
+  <object id="147" name="PAL-SMY" type="Route" x="1009.33" y="1206.67">
+   <properties>
+    <property name="cityA" type="object" value="23"/>
+    <property name="cityB" type="object" value="26"/>
+    <property name="colour" propertytype="colours" value="grey"/>
+    <property name="length" type="int" value="6"/>
+    <property name="numFerryIcons" type="int" value="2"/>
+   </properties>
+   <polyline points="0,0 418.667,1.33333"/>
+  </object>
+  <object id="148" name="ATH-SMY" type="Route" x="1301.33" y="1150">
+   <properties>
+    <property name="cityA" type="object" value="25"/>
+    <property name="cityB" type="object" value="26"/>
+    <property name="colour" propertytype="colours" value="grey"/>
+    <property name="length" type="int" value="2"/>
+    <property name="numFerryIcons" type="int" value="1"/>
+   </properties>
+   <polyline points="0,0 70.6667,4 130.667,32.6667"/>
+  </object>
+  <object id="149" name="SAR-ATH" type="Route" x="1258.67" y="1140">
+   <properties>
+    <property name="cityA" type="object" value="31"/>
+    <property name="cityB" type="object" value="25"/>
+    <property name="colour" propertytype="colours" value="green"/>
+    <property name="length" type="int" value="4"/>
+   </properties>
+   <polyline points="0,0 -82.6667,-6 -67.3333,-202.667"/>
+  </object>
+  <object id="150" name="SOF-ATH" type="Route" x="1310" y="946.667">
+   <properties>
+    <property name="cityA" type="object" value="30"/>
+    <property name="cityB" type="object" value="25"/>
+    <property name="colour" propertytype="colours" value="pink"/>
+    <property name="length" type="int" value="3"/>
+   </properties>
+   <polyline points="0,0 -54,52 -62,126.667 -28,188.667"/>
+  </object>
+  <object id="151" name="SOF-CON" type="Route" x="1335.33" y="946">
+   <properties>
+    <property name="cityA" type="object" value="30"/>
+    <property name="cityB" type="object" value="29"/>
+    <property name="colour" propertytype="colours" value="blue"/>
+    <property name="length" type="int" value="3"/>
+   </properties>
+   <polyline points="0,0 181.333,99.3333"/>
+  </object>
+  <object id="152" name="CON-SMY" type="Route" x="1519.33" y="1062">
+   <properties>
+    <property name="cityA" type="object" value="29"/>
+    <property name="cityB" type="object" value="26"/>
+    <property name="colour" propertytype="colours" value="grey"/>
+    <property name="isTunnel" type="bool" value="true"/>
+    <property name="length" type="int" value="2"/>
+   </properties>
+   <polyline points="0,0 -64.6667,124"/>
+  </object>
+  <object id="153" name="SMY-ANG" type="Route" x="1469.33" y="1206.67">
+   <properties>
+    <property name="cityA" type="object" value="26"/>
+    <property name="cityB" type="object" value="27"/>
+    <property name="colour" propertytype="colours" value="orange"/>
+    <property name="isTunnel" type="bool" value="true"/>
+    <property name="length" type="int" value="3"/>
+   </properties>
+   <polyline points="0,0 69.3333,6.66667 143.333,-0.666667 204.667,-35.3333"/>
+  </object>
+  <object id="154" name="CON-ANG" type="Route" x="1552.67" y="1062">
+   <properties>
+    <property name="cityA" type="object" value="29"/>
+    <property name="cityB" type="object" value="27"/>
+    <property name="colour" propertytype="colours" value="grey"/>
+    <property name="isTunnel" type="bool" value="true"/>
+    <property name="length" type="int" value="2"/>
+   </properties>
+   <polyline points="0,0 56,43.3333 112.667,84"/>
+  </object>
+  <object id="155" name="ANG-ERZ" type="Route" x="1704" y="1164">
+   <properties>
+    <property name="cityA" type="object" value="27"/>
+    <property name="cityB" type="object" value="28"/>
+    <property name="colour" propertytype="colours" value="black"/>
+    <property name="length" type="int" value="3"/>
+   </properties>
+   <polyline points="0,0 61.3333,35.3333 148,20 137.333,-34"/>
+  </object>
+  <object id="156" name="SEV-CON" type="Route" x="1548" y="1034.67">
+   <properties>
+    <property name="cityA" type="object" value="33"/>
+    <property name="cityB" type="object" value="29"/>
+    <property name="colour" propertytype="colours" value="grey"/>
+    <property name="length" type="int" value="4"/>
+    <property name="numFerryIcons" type="int" value="2"/>
+   </properties>
+   <polyline points="0,0 48,-63.3333 84,-34 136.667,-104 134.667,-176"/>
+  </object>
+  <object id="157" name="SEV-ERZ" type="Route" x="1708.67" y="859.333">
+   <properties>
+    <property name="cityA" type="object" value="33"/>
+    <property name="cityB" type="object" value="28"/>
+    <property name="colour" propertytype="colours" value="grey"/>
+    <property name="length" type="int" value="4"/>
+    <property name="numFerryIcons" type="int" value="2"/>
+   </properties>
+   <polyline points="0,0 -0.666667,67.3333 12,139.333 52,202 114,241.333"/>
+  </object>
+  <object id="158" name="SOC-ERZ" type="Route" x="1842.67" y="1095.33">
+   <properties>
+    <property name="cityA" type="object" value="34"/>
+    <property name="cityB" type="object" value="28"/>
+    <property name="colour" propertytype="colours" value="red"/>
+    <property name="isTunnel" type="bool" value="true"/>
+    <property name="length" type="int" value="3"/>
+   </properties>
+   <polyline points="0,0 30,-208.667"/>
+  </object>
+  <object id="159" name="BUC-CON" type="Route" x="1444" y="833.333">
+   <properties>
+    <property name="cityA" type="object" value="32"/>
+    <property name="cityB" type="object" value="29"/>
+    <property name="colour" propertytype="colours" value="yellow"/>
+    <property name="length" type="int" value="3"/>
+   </properties>
+   <polyline points="0,0 81.3333,192.667"/>
+  </object>
+ </objectgroup>
+ <imagelayer id="2" name="Image Layer 1" locked="1">
+  <image source="../mapEurope.png" width="1919" height="1237"/>
+ </imagelayer>
+</map>

@@ -1,0 +1,108 @@
+{
+    "automappingRulesFile": "",
+    "commands": [
+    ],
+    "compatibilityVersion": 1100,
+    "extensionsPath": "extensions",
+    "folders": [
+        "."
+    ],
+    "properties": [
+    ],
+    "propertyTypes": [
+        {
+            "color": "#ffa0a0a4",
+            "drawFill": true,
+            "id": 1,
+            "members": [
+            ],
+            "name": "City",
+            "type": "class",
+            "useAs": [
+                "property",
+                "map",
+                "layer",
+                "object",
+                "tile",
+                "tileset",
+                "wangcolor",
+                "wangset",
+                "project"
+            ]
+        },
+        {
+            "id": 3,
+            "name": "colours",
+            "storageType": "string",
+            "type": "enum",
+            "values": [
+                "red",
+                "blue",
+                "green",
+                "yellow",
+                "black",
+                "orange",
+                "pink",
+                "white",
+                "grey"
+            ],
+            "valuesAsFlags": true
+        },
+        {
+            "color": "#ffa0a0a4",
+            "drawFill": true,
+            "id": 2,
+            "members": [
+                {
+                    "name": "cityA",
+                    "type": "object",
+                    "value": 0
+                },
+                {
+                    "name": "cityB",
+                    "type": "object",
+                    "value": 0
+                },
+                {
+                    "name": "colour",
+                    "propertyType": "colours",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "duplicateGroup",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "isTunnel",
+                    "type": "bool",
+                    "value": false
+                },
+                {
+                    "name": "length",
+                    "type": "int",
+                    "value": 0
+                },
+                {
+                    "name": "numFerryIcons",
+                    "type": "int",
+                    "value": 0
+                }
+            ],
+            "name": "Route",
+            "type": "class",
+            "useAs": [
+                "property",
+                "map",
+                "layer",
+                "object",
+                "tile",
+                "tileset",
+                "wangcolor",
+                "wangset",
+                "project"
+            ]
+        }
+    ]
+}

@@ -319,7 +319,6 @@ controlflow {
 <ownedOperation>
 <reflist>
 <ref refid="63b95f70-861c-11f1-99ed-3af1e2b5319d"/>
-<ref refid="150b6c7e-2d97-40e9-90d3-d2972c3ae6b3"/>
 </reflist>
 </ownedOperation>
 <owningPackage>
@@ -336,7 +335,7 @@ controlflow {
 </UML:Class>
 <UML:ClassItem id="46e27c92-861c-11f1-99ed-3af1e2b5319d">
 <matrix>
-<val>(1.0, 0.0, 0.0, 1.0, -70.0, 571.4609375)</val>
+<val>(1.0, 0.0, 0.0, 1.0, -74.0, 586.4689626033783)</val>
 </matrix>
 <top-left>
 <val>(0.0, 0.0)</val>
@@ -597,14 +596,6 @@ controlflow {
 <val>int</val>
 </typeValue>
 </UML:Parameter>
-<UML:Operation id="150b6c7e-2d97-40e9-90d3-d2972c3ae6b3">
-<class_>
-<ref refid="46e1ebf6-861c-11f1-99ed-3af1e2b5319d"/>
-</class_>
-<name>
-<val>reshuffleDiscardIntoDeck</val>
-</name>
-</UML:Operation>
 <UML:Operation id="eb2767ef-83ff-44ac-b9a6-17d274b143e0">
 <class_>
 <ref refid="a679c55e-867e-11f1-99ed-3af1e2b5319d"/>
@@ -1096,10 +1087,10 @@ controlflow {
 <val>(0.0, 0.0)</val>
 </top-left>
 <width>
-<val>368.0</val>
+<val>454.0</val>
 </width>
 <height>
-<val>210.0</val>
+<val>205.7930750516892</val>
 </height>
 <diagram>
 <ref refid="e322f3c4-8618-11f1-99ed-3af1e2b5319d"/>

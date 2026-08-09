@@ -1,8 +1,12 @@
 import json
 import mechanicClasses as m
 from gameLoop import Game
+import os
 
-with open("mapData.json") as f:
+script_dir = os.path.dirname(os.path.abspath(__file__))
+mapdata_path = os.path.join(script_dir, "mapData.json")
+
+with open(mapdata_path) as f:
     mapData = json.load(f)
 
 board = m.Board()

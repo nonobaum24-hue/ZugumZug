@@ -1,8 +1,20 @@
 {
     "activeFile": "",
     "expandedProjectPaths": [
+        "."
     ],
     "fileStates": {
+        "map.tmx": {
+            "expandedObjectLayers": [
+                4
+            ],
+            "scale": 4,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 1813.75,
+                "y": 596
+            }
+        }
     },
     "last.exportedFilePath": "/Volumes/NoNoBaum/ZugumZug/Mapeditor",
     "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
@@ -12,5 +24,6 @@
     "project": "untitled.tiled-project",
     "property.type": "colours",
     "recentFiles": [
+        "map.tmx"
     ]
 }

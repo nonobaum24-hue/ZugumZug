@@ -36,7 +36,7 @@ class Route:
 
 
 class Player:
-    def __init__(self, name, playerColour, waggonCardStack):
+    def __init__(self, name, playerColour, waggonCardStack, routeCardStack):
         self.name = name
         self.colour = playerColour
         self.waggonCount = WAGGONS
@@ -49,7 +49,7 @@ class Player:
         for _ in range(4):
             self.waggonCards.append(waggonCardStack.drawCard())
 
-    def drawWaggonCard(self, waggonCardStack, publicCardStack=None, index=None):
+    def drawWaggonCard(self, waggonCardStack = None, publicCardStack=None, index=None):
         """Draws one waggon card, either blind from the deck or openly from the
         public display (publicCardStack + index). Returns the card, or False if
         an invalid public index was chosen."""
@@ -383,3 +383,4 @@ class RouteCardStack:
         if len(self.stack) == 0:
             return False
         return self.stack.pop(randint(0, len(self.stack) - 1))
+

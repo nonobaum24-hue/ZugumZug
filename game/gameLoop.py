@@ -1,63 +1,6 @@
 from mechanicClasses import *
 from random import randint
 
-WAGGON_COLOURS = ["pink", "white", "blue", "yellow", "orange", "black", "red", "green"]
-
-ALL_WAGGON_CARDS = []
-for colour in WAGGON_COLOURS:
-    ALL_WAGGON_CARDS.extend([colour] * 12)
-ALL_WAGGON_CARDS.extend(["locomotive"] * 14)
-
-ALL_ROUTE_CARDS = [
-    {"cityA": "Athina", "cityB": "Angora", "points": 5},
-    {"cityA": "Budapest", "cityB": "Sofia", "points": 5},
-    {"cityA": "Frankfurt", "cityB": "Kobenhavn", "points": 5},
-    {"cityA": "Rostov", "cityB": "Erzurum", "points": 5},
-    {"cityA": "Sofia", "cityB": "Smyrna", "points": 5},
-    {"cityA": "Kyiv", "cityB": "Petrograd", "points": 6},
-    {"cityA": "Zurich", "cityB": "Brindisi", "points": 6},
-    {"cityA": "Zurich", "cityB": "Budapest", "points": 6},
-    {"cityA": "Warszawa", "cityB": "Smolensk", "points": 6},
-    {"cityA": "Zagrab", "cityB": "Brindisi", "points": 6},
-    {"cityA": "Paris", "cityB": "Zagrab", "points": 7},
-    {"cityA": "Brest", "cityB": "Marseille", "points": 7},
-    {"cityA": "London", "cityB": "Berlin", "points": 7},
-    {"cityA": "Edinburgh", "cityB": "Paris", "points": 7},
-    {"cityA": "Amsterdam", "cityB": "Pamplona", "points": 7},
-    {"cityA": "Roma", "cityB": "Smyrna", "points": 8},
-    {"cityA": "Palermo", "cityB": "Constantinople", "points": 8},
-    {"cityA": "Sarajevo", "cityB": "Sevastopol", "points": 8},
-    {"cityA": "Madrid", "cityB": "Dieppe", "points": 8},
-    {"cityA": "Barcelona", "cityB": "Bruxelles", "points": 8},
-    {"cityA": "Paris", "cityB": "Wien", "points": 8},
-    {"cityA": "Barcelona", "cityB": "Munchen", "points": 8},
-    {"cityA": "Brest", "cityB": "Venezia", "points": 8},
-    {"cityA": "Smolensk", "cityB": "Rostov", "points": 8},
-    {"cityA": "Marseille", "cityB": "Essen", "points": 8},
-    {"cityA": "Kyiv", "cityB": "Sochi", "points": 8},
-    {"cityA": "Madrid", "cityB": "Zurich", "points": 8},
-    {"cityA": "Berlin", "cityB": "Bucuresti", "points": 8},
-    {"cityA": "Bruxelles", "cityB": "Danzig", "points": 9},
-    {"cityA": "Berlin", "cityB": "Roma", "points": 9},
-    {"cityA": "Angora", "cityB": "Kharkov", "points": 10},
-    {"cityA": "Riga", "cityB": "Bucuresti", "points": 10},
-    {"cityA": "Essen", "cityB": "Kyiv", "points": 10},
-    {"cityA": "Venezia", "cityB": "Constantinople", "points": 10},
-    {"cityA": "London", "cityB": "Wien", "points": 10},
-    {"cityA": "Athina", "cityB": "Wilno", "points": 11},
-    {"cityA": "Stockholm", "cityB": "Wien", "points": 11},
-    {"cityA": "Berlin", "cityB": "Moskva", "points": 12},
-    {"cityA": "Amsterdam", "cityB": "Wilno", "points": 12},
-    {"cityA": "Frankfurt", "cityB": "Smolensk", "points": 13},
-    # -- die 6 langen Strecken --
-    {"cityA": "Lisboa", "cityB": "Danzig", "points": 20},
-    {"cityA": "Brest", "cityB": "Petrograd", "points": 20},
-    {"cityA": "Palermo", "cityB": "Moskva", "points": 20},
-    {"cityA": "Kobenhavn", "cityB": "Erzurum", "points": 21},
-    {"cityA": "Edinburgh", "cityB": "Athina", "points": 21},
-    {"cityA": "Cadiz", "cityB": "Stockholm", "points": 21},
-]
-
 class Game:
     def __init__(self, pManager, board):
         """pManager already owns the waggon/public/route card stacks - Game

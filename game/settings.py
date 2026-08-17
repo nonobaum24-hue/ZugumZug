@@ -3,6 +3,7 @@ import raylib as rl
 from pyray import *
 from random import randint
 from collections import Counter, deque
+from os.path import join
 
 #Game Mechanic
 WAGGONS = 45
@@ -72,6 +73,8 @@ GAME_TITLE = 'Zug um Zug'
 #UI
 WINDOW_HEIGHT = 720
 WINDOW_WIDTH = 1280
+
+FONT_SIZE = 20
 
 MAP_PATH = "ZugumZug/assets/img/map/map.png"
 PATHS_WAGGON_CARDS = {

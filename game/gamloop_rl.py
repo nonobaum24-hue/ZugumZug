@@ -33,9 +33,37 @@ class game:
         draw_texture(rc, WINDOW_WIDTH//2-rc.width//2, WINDOW_HEIGHT//3, WHITE)
         return rec_dis, rec_acc
 
+    def draw_route_card(self, cards, card_index):
+        card = cards[card_index]
+        path = card['path']
 
     def start_game(self):
         list_of_handled_players = []
+
+        drawn_cards = self.m.handleDrawRouteCards()
+        card_index = 0
         
         while not window_should_close():
-            self.draw_routecard_acceptance())
+            #drawing
+
+            begin_drawing()
+
+            rec_dis, rec_acc = self.draw_routecard_acceptance()
+            self.draw_route_card(drawn_cards, card_index)
+
+            end_drawing()
+
+            #input
+
+            current_card = self.draw_card()
+
+            if is_mouse_button_pressed(rl.MOUSE_BUTTON_LEFT):
+                mouse_pos = get_mouse_position(current_card)
+                if check_collision_point_rec(mouse_pos, rec_dis):
+                    self.discard_card()
+                if check_collision_point_rec(mouse_pos, rec_acc):
+                    self.accept_card(current_card)
+                if card_index == ROUTE_CARD_DRAWCOUNT:
+                    self.m.nextPlayer()
+                else:
+                    card_index += 1

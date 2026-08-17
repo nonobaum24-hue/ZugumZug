@@ -10,6 +10,8 @@ WAGGONS = 45
 STATIONS = 3
 POINTS_FOR_LENGTH = {1: 1, 2: 2, 3: 4, 4: 7, 5: 10, 6: 15}
 
+ROUTE_CARD_DRAWCOUNT = 4
+
 #Ressources
 WAGGON_COLOURS = ["pink", "white", "blue", "yellow", "orange", "black", "red", "green"]
 

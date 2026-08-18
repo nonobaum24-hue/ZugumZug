@@ -1,14 +1,14 @@
-# Zug um Zug — Isometric Pygame Recreation
+# Zug um Zug — Isometric Recreation
 
 ## Project Overview
 
-This project is a from-scratch recreation of **Zug um Zug** (the German edition of *Ticket to Ride*, based on the Europe map — hence the inclusion of tunnels, ferries, and train stations) as an **isometric game built with Pygame**.
+This project is a from-scratch recreation of **Zug um Zug** (the German edition of *Ticket to Ride*, based on the Europe map — hence the inclusion of tunnels, ferries, and train stations), rendered with **raylib (via the `pyray`/`raylib` Python bindings)**.
 
 Development philosophy:
 - Strict **object-oriented programming** in **pure Python**.
-- The game *mechanics* (rules, state, validation) are being built and verified completely independently of any rendering or UI code first. No Pygame-specific code, no file formats (e.g. JSON) yet — the goal is to get the underlying logic fully correct and testable before touching graphics.
-- Map data (cities, routes) will eventually be loaded from an external map file rather than hardcoded, so different maps can be swapped in without touching the core engine.
-- The final UI will let the player pick which of their already-collected cards to spend (e.g. via clicking), rather than requiring manual text input.
+- The game *mechanics* (rules, state, validation) were built and verified completely independently of any rendering or UI code first — no graphics-specific code, no file formats, just testable core logic (see `mechanicClasses.py`).
+- Map data (cities, routes) is loaded from an external map file (`mapData.json`, produced via the Tiled map editor pipeline in `Mapeditor/`) rather than hardcoded, so different maps can be swapped in without touching the core engine.
+- The final UI lets the player pick which of their already-collected cards to spend (e.g. via clicking), rather than requiring manual text input.
 
 ---
 
@@ -74,12 +74,13 @@ The moment any player drops to **2 or fewer** remaining wagons, the current roun
 
 ## Technical Architecture (current state)
 
-The core mechanics live in `mechanicClasses.py`. Classes implemented so far:
+### Core mechanics — `mechanicClasses.py`
+Rendering-independent and fully covered by the logic layer:
 
-- **`City`** — name, and grid coordinates (`gridX`, `gridY`) for later isometric placement.
+- **`City`** — name, and grid coordinates (`gridX`, `gridY`) for isometric placement.
 - **`Route`** — connects two `City` objects; stores length, colour, owner, duplicate-pairing (`pairedRoute`), ferry icon count, and tunnel flag. Provides `isClaimed()` and `calculatePointsForLength()`.
 - **`Player`** — hand of train cards, destination tickets, owned routes, wagon/station counts, and points. Handles drawing cards, validating and executing route claims (including ferry and tunnel rules), and drawing/keeping destination tickets.
-- **`PlayerManager`** — orchestrates turns across all players: draws (with the locomotive-ends-turn rule), route claims (including the two-phase tunnel reveal-then-pay flow), and destination ticket draws. Also checks the end-game trigger condition.
+- **`PlayerManager`** — orchestrates turns across all players: draws (with the locomotive-ends-turn rule), route claims (including the two-phase tunnel reveal-then-pay flow), and destination ticket draws (`handleDrawRouteCards`, `handleKeepRouteCards`). Also checks the end-game trigger condition.
 - **`Board`** — holds the full map (`cities`, `routes`), loads it from map data (`loadMap`), and answers graph-based questions:
   - `getRoutesForPlayer(player)`
   - `getAvailableRoutes(numPlayers)` (respecting the duplicate-route restriction)
@@ -89,8 +90,24 @@ The core mechanics live in `mechanicClasses.py`. Classes implemented so far:
 - **`PublicCardStack`** — the 5 face-up train cards, including the 3-locomotives-triggers-reshuffle rule.
 - **`RouteCardStack`** — the destination ticket deck.
 
+### Settings & data — `settings.py`
+Central config: raylib/pyray imports, wagon/station counts, points-per-length table, the full waggon card and destination ticket pools (with card image paths), window size, and font size.
+
+### Map data
+`mapData.json` (built via the Tiled-based pipeline in `Mapeditor/`) holds the real city/route layout and is loaded through `Board.loadMap()`.
+
+### Game loops
+Two parallel implementations of the turn loop currently exist, both built on top of the same `mechanicClasses` core:
+
+- **`gameLoop.py`** — the original **terminal-based** loop (`Game` class). Fully working, driven entirely by `input()` prompts; used to validate the mechanics end-to-end before any graphics were involved. Not being extended further.
+- **`gamloop_rl.py`** — the **raylib-based graphical** loop (`game` class), currently in active development. `rl` stands for raylib, not reinforcement learning.
+  - Implemented so far: window setup, random starting player, and the **destination-ticket accept/discard screen** — each drawn card gets a clickable "Accept"/"Discard" button pair; once every displayed card has a choice, the kept cards are submitted via `handleKeepRouteCards` and play passes to the next player.
+  - Internally split into `build_card_state` (called once per player turn — computes button rectangles and resets choices) and `draw_routecard_acceptance` (called every frame — only draws, never touches game state), so on-screen choices persist correctly across frames.
+  - `run.py` and `button_test.py` are older/experimental helpers tied to `gameLoop.py` and are not part of the `gamloop_rl.py` path.
+
 ### Not yet implemented
 - Station mechanic (borrowing an opponent's route)
-- Loading real map data through `Board.loadMap()` from an external file format
+- Route-claiming, waggon-card drawing, and map rendering inside `gamloop_rl.py` (currently only the destination-ticket screen exists)
+- Enforcing the "keep at least one destination ticket" rule inside `gamloop_rl.py` (present in the terminal `gameLoop.py`, still a TODO in the raylib version)
 - Full end-of-game scoring pass (ticket completion check + longest-route bonus tally across all players)
-- Any Pygame rendering / isometric visuals / UI
+- Isometric board rendering

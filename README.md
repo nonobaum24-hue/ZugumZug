@@ -108,6 +108,5 @@ Two parallel implementations of the turn loop currently exist, both built on top
 ### Not yet implemented
 - Station mechanic (borrowing an opponent's route)
 - Route-claiming, waggon-card drawing, and map rendering inside `gamloop_rl.py` (currently only the destination-ticket screen exists)
-- Enforcing the "keep at least one destination ticket" rule inside `gamloop_rl.py` (present in the terminal `gameLoop.py`, still a TODO in the raylib version)
 - Full end-of-game scoring pass (ticket completion check + longest-route bonus tally across all players)
 - Isometric board rendering

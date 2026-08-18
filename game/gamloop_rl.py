@@ -69,14 +69,16 @@ class game:
         return True
 
     def start_game(self):
+        should_start_game = False
         given_cards = {}
         for player in self.m.players:
             given_cards[player] = self.m.handleDrawRouteCards()
 
         current_player = self.m.getCurrentPlayer()
         rectangles = self.build_card_state(given_cards[current_player])
+        players_handled = 0
 
-        while not window_should_close():
+        while not window_should_close() and not should_start_game():
             #drawing
             begin_drawing()
             self.draw_routecard_acceptance(rectangles)
@@ -97,7 +99,9 @@ class game:
                     pass
                 else:
                     self.m.handleKeepRouteCards(given_cards[current_player], kept)
-
                     self.m.nextPlayer()
                     current_player = self.m.getCurrentPlayer()
                     rectangles = self.build_card_state(given_cards[current_player])
+                    players_handled += 1
+                    if players_handled == len(self.m.players):
+                        should_start_game = True

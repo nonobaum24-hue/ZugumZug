@@ -13,57 +13,65 @@ class game:
     def ask_route_card(self, route_card):
         pass
 
-    def draw_buttons_dis_and_acc(self):
+    def draw_buttons_dis_and_acc(self, x_Value):
         text_size = measure_text('Discard', FONT_SIZE)
-        draw_rectangle(WINDOW_WIDTH//3-text_size//2, WINDOW_HEIGHT-WINDOW_HEIGHT//4-text_size//2, text_size, int(FONT_SIZE *1.2), RED)
-        draw_text('Discard', WINDOW_WIDTH//3-text_size//2, WINDOW_HEIGHT-WINDOW_HEIGHT//4-text_size//2, FONT_SIZE, WHITE)
-        rectangle_discard = Rectangle(WINDOW_WIDTH//3-text_size//2, WINDOW_HEIGHT-WINDOW_HEIGHT//4-text_size//2, text_size, FONT_SIZE *1.1)
+        draw_rectangle(x_Value-text_size//2, WINDOW_HEIGHT-WINDOW_HEIGHT//4-text_size//2, text_size, int(FONT_SIZE *1.2), RED)
+        draw_text('Discard', x_Value-text_size//2, WINDOW_HEIGHT-WINDOW_HEIGHT//4-text_size//2, FONT_SIZE, WHITE)
+        rectangle_discard = Rectangle(x_Value-text_size//2, WINDOW_HEIGHT-WINDOW_HEIGHT//4-text_size//2, text_size, FONT_SIZE *1.1)
 
         #Accept Button
         text_size = measure_text('Accept', FONT_SIZE)
-        draw_rectangle(WINDOW_WIDTH//3*2-text_size//2, WINDOW_HEIGHT-WINDOW_HEIGHT//4-text_size//2, text_size, int(FONT_SIZE *1.2), GREEN)
-        draw_text('Accept', WINDOW_WIDTH//3*2-text_size//2, WINDOW_HEIGHT-WINDOW_HEIGHT//4-text_size//2, FONT_SIZE, WHITE)
-        rectangle_accept = Rectangle(WINDOW_WIDTH//3*-text_size//2, WINDOW_HEIGHT-WINDOW_HEIGHT//4-text_size//2, text_size, FONT_SIZE *1.1)
+        draw_rectangle(x_Value-text_size//2, WINDOW_HEIGHT-WINDOW_HEIGHT//6-text_size//2, text_size, int(FONT_SIZE *1.2), GREEN)
+        draw_text('Accept', x_Value-text_size//2, WINDOW_HEIGHT-WINDOW_HEIGHT//6-text_size//2, FONT_SIZE, WHITE)
+        rectangle_accept = Rectangle(x_Value-text_size//2, WINDOW_HEIGHT-WINDOW_HEIGHT//6-text_size//2, text_size, FONT_SIZE *1.1)
 
         return rectangle_discard, rectangle_accept
     
-    def draw_routecard_acceptance(self, route_card):
-        rec_dis, rec_acc = self.draw_buttons_dis_and_acc()
-        rc = load_texture(route_card)
-        draw_texture(rc, WINDOW_WIDTH//2-rc.width//2, WINDOW_HEIGHT//3, WHITE)
-        return rec_dis, rec_acc
+    def draw_routecard_acceptance(self, route_cards):
+        rclist = route_cards
+        rectangles = {}
+        x_Value = WINDOW_WIDTH // 4
+        for card in rclist:
+            rc = load_texture(card["path"])
+            draw_texture(rc, x_Value - rc.width//2, WINDOW_HEIGHT//3, WHITE) 
+            rec_dis, rec_acc = self.draw_buttons_dis_and_acc(x_Value)
+            rectangles.update({card:{'discard_rec': rec_dis, 'accept_rec': rec_acc, 'choice' = None}})
+            x_Value += WINDOW_WIDTH//4
 
-    def draw_route_card(self, cards, card_index):
-        card = cards[card_index]
-        path = card['path']
+        return rectangles
+
+    def check_if_everything_checked(diction):
+        for i in diction:
+            sub_dict = i[card]
+            if sub_dict['choice'] == None:
+                return False
+        return True
 
     def start_game(self):
-        list_of_handled_players = []
-
-        drawn_cards = self.m.handleDrawRouteCards()
-        card_index = 0
+        given_cards = {}
+        for i in self.m.players: 
+            given_cards.update({i:self.m.handleDrawRouteCards()})
         
         while not window_should_close():
             #drawing
 
             begin_drawing()
 
-            rec_dis, rec_acc = self.draw_routecard_acceptance()
-            self.draw_route_card(drawn_cards, card_index)
+            rectangles = self.draw_routecard_acceptance()
 
             end_drawing()
 
             #input
 
-            current_card = self.draw_card()
-
             if is_mouse_button_pressed(rl.MOUSE_BUTTON_LEFT):
-                mouse_pos = get_mouse_position(current_card)
-                if check_collision_point_rec(mouse_pos, rec_dis):
-                    self.discard_card()
-                if check_collision_point_rec(mouse_pos, rec_acc):
-                    self.accept_card(current_card)
-                if card_index == ROUTE_CARD_DRAWCOUNT:
-                    self.m.nextPlayer()
-                else:
-                    card_index += 1
+                mouse_pos = get_mouse_position()
+                for i in rectangles.values:
+                    for rectangle in i:
+                        if check_collision_point_rec(mouse_pos, rectangle['acc_rec']):
+                            i.update({'choice': 'accepted'})
+                        elif check_collision_point_rec(mouse_pos, rectangle['dis_rec']):
+                            i.update({'choice': 'discarded'})
+
+            if self.check_if_everything_checked(rectangles):
+                self.m.nextPlayer()
+                

@@ -93,12 +93,11 @@ class game:
 
             if self.check_if_everything_checked(rectangles):
                 kept = [entry['card'] for entry in rectangles.values() if entry['choice'] == 'accepted']
-                # TODO: laut Regelwerk muss mindestens eine Zielkarte behalten werden.
-                # handleKeepRouteCards gibt False zurück, wenn kept leer ist - das
-                # wird hier noch nicht abgefangen (Spieler könnte aktuell alle
-                # Karten ablehnen, ohne eine Fehlermeldung zu bekommen).
-                self.m.handleKeepRouteCards(given_cards[current_player], kept)
+                if len(kept) <= 1:
+                    pass
+                else:
+                    self.m.handleKeepRouteCards(given_cards[current_player], kept)
 
-                self.m.nextPlayer()
-                current_player = self.m.getCurrentPlayer()
-                rectangles = self.build_card_state(given_cards[current_player])
+                    self.m.nextPlayer()
+                    current_player = self.m.getCurrentPlayer()
+                    rectangles = self.build_card_state(given_cards[current_player])

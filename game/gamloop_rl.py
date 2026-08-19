@@ -105,3 +105,15 @@ class game:
                     players_handled += 1
                     if players_handled == len(self.m.players):
                         should_start_game = True
+
+    def choose_action(self):
+        occupy_choice = load_texture("ZugumZug/game/assets/img/choice/occupy.png")
+        draw//
+
+    def game_loop(self):
+        while not window_should_close():
+            choice = self.choose_action
+            if choice == 'occupy': self.occupy()
+            elif choice == 'draw_waggon_cards': self.draw_waggon_cards
+            else: self.draw_route_cards
+            self.m.nextplayer()

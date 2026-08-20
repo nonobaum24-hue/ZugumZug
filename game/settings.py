@@ -78,6 +78,8 @@ WINDOW_WIDTH = 1280
 
 FONT_SIZE = 20
 
+SCALE = 5
+
 MAP_PATH = "ZugumZug/assets/img/map/map.png"
 PATHS_WAGGON_CARDS = {
     "pink" : "ZugumZug/assets/img/cards/oink_waggon.png", 
@@ -88,8 +90,4 @@ PATHS_WAGGON_CARDS = {
     "black" : "ZugumZug/assets/img/cards/black_waggon.png", 
     "red" : "ZugumZug/assets/img/cards/red_waggon.png", 
     "green" : "ZugumZug/assets/img/cards/green_waggon.png"
-}
-
-PATHS_ROUTE_CARDS = {
-
 }

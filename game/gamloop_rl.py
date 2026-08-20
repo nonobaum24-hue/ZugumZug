@@ -128,7 +128,6 @@ class game:
         return rec_occupy, rec_waggon, rec_route
 
     def draw_ui(self):
-        begin_drawing()
 
         #draw Map
         europe_map = load_texture("ZugumZug/game/assets/img/main_game_ui/map.png")
@@ -162,12 +161,26 @@ class game:
                     if check_collision_point_rec(mouse_pos, action):
                         return actions.index[action]
 
-            
+    def draw_start_button(self):
+        x_width = measure_text('Start Round', FONT_SIZE)
+        draw_text("Start Round", WINDOW_WIDTH//2-x_width/2, WINDOW_HEIGHT//10, FONT_SIZE, BLACK)
+        draw_rectangle()
+
+    def idle_screen(self):
+        ready = True
+        while ready != True:
+            begin_drawing()
+            self.draw_ui()
+            self.draw_start_button()
+            #input
+
+
 
 
 
     def game_loop(self):
         while not window_should_close():
+            self.idle_screen()
             choice = self.choose_action
             if choice == 0: self.occupy_screen()
             elif choice == 1: self.draw_waggon_cards_screen

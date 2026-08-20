@@ -106,14 +106,51 @@ class game:
                     if players_handled == len(self.m.players):
                         should_start_game = True
 
-    def choose_action(self):
+    def draw_action_options(self):
+        begin_drawing()
+        clear_background()
+        self.draw_ui()
+        draw_rectangle(0,0,WINDOW_WIDTH, WINDOW_HEIGHT, (0,0,0,50))
+
         occupy_choice = load_texture("ZugumZug/game/assets/img/choice/occupy.png")
-        draw//
+        draw_texture(occupy_choice, WINDOW_WIDTH//occupy_choice.width, WINDOW_HEIGHT//2-occupy_choice.height//2, WHITE)
+        rec_occupy = Rectangle(WINDOW_WIDTH//occupy_choice.width, WINDOW_HEIGHT//2-occupy_choice.height//2, occupy_choice.width, occupy_choice.height)
+
+        waggon_choice = load_texture("ZugumZug/game/assets/img/choice/waggon.png")
+        draw_texture(waggon_choice, WINDOW_WIDTH//2-waggon_choice.width//2, WINDOW_HEIGHT//2-waggon_choice.height//2, WHITE)
+        rec_waggon = Rectangle(WINDOW_WIDTH//waggon_choice.width, WINDOW_HEIGHT//2-waggon_choice.height//2, waggon_choice.width, waggon_choice.height)
+
+        route_card_choice = load_texture("ZugumZug/game/assets/img/choice/route_card.png")
+        draw_texture(route_card_choice, WINDOW_WIDTH-WINDOW_WIDTH-route_card_choice.width*2, WINDOW_HEIGHT//2-route_card_choice.height//2, WHITE)
+        rec_route = Rectangle(WINDOW_WIDTH//route_card_choice.width, WINDOW_HEIGHT//2-route_card_choice.height//2, route_card_choice.width, route_card_choice.height)
+        end_drawing()
+
+        return rec_occupy, rec_waggon, rec_route
+
+    def draw_ui(self):
+        begin_drawing()
+
+        #draw Map
+        europe_map = load_texture("")
+
+    def choose_action(self):
+        while True:
+            rec_occupy, rec_waggon, rec_route = self.draw_action_options
+            actions = [rec_occupy, rec_waggon, rec_route]
+            if is_mouse_button_released(rl.MOUSE_BUTTON_LEFT):
+                mouse_pos = get_mouse_position
+                for action in actions:
+                    if check_collision_point_rec(mouse_pos, action):
+                        return actions.index[action]
+
+            
+
+
 
     def game_loop(self):
         while not window_should_close():
             choice = self.choose_action
-            if choice == 'occupy': self.occupy()
-            elif choice == 'draw_waggon_cards': self.draw_waggon_cards
-            else: self.draw_route_cards
+            if choice == 0: self.occupy_screen()
+            elif choice == 1: self.draw_waggon_cards_screen
+            elif choice == 2: self.draw_route_cards_screen
             self.m.nextplayer()

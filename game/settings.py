@@ -77,6 +77,7 @@ WINDOW_HEIGHT = 720
 WINDOW_WIDTH = 1280
 
 FONT_SIZE = 20
+BIEDERMEIER = load_font("ZugumZug/game/assets/fonts/BiedermeierKursiv.ttf")
 
 SCALE = 5
 

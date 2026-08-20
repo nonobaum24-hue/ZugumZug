@@ -162,19 +162,33 @@ class game:
                         return actions.index[action]
 
     def draw_start_button(self):
-        x_width = measure_text('Start Round', FONT_SIZE)
-        draw_text("Start Round", WINDOW_WIDTH//2-x_width/2, WINDOW_HEIGHT//10, FONT_SIZE, BLACK)
-        draw_rectangle()
+        text = measure_text_ex(BIEDERMEIER, 'Start Round', FONT_SIZE, 1)
+        draw_text_ex(BIEDERMEIER, "Start Round", Vector2(WINDOW_WIDTH//2-text.x/2, WINDOW_HEIGHT//10), FONT_SIZE, 1, BLACK)
+        draw_rectangle(WINDOW_WIDTH//2-text.x/2, WINDOW_HEIGHT//10, text.x, text.y, GREEN)
+        return Rectangle(WINDOW_WIDTH//2-text.x/2, WINDOW_HEIGHT//10, text.x, text.y)
 
     def idle_screen(self):
-        ready = True
+        ready = False
         while ready != True:
             begin_drawing()
             self.draw_ui()
-            self.draw_start_button()
+            start_button = self.draw_start_button()
             #input
+            if is_mouse_button_released(rl.MOUSE_BUTTON_LEFT):
+                mouse_pos = get_mouse_position()
+                if check_collision_point_rec(mouse_pos, start_button): ready = True
+            if is_key_pressed(rl.KEY_SPACE): self.show_route_cards()
+            if is_key_pressed(rl.KEY_LEFT_SHIFT): self.show_waggon_cards()
 
-
+    def show_waggon_cards(self):
+        current_player = self.m.getCurrentPlayer()
+        colour_index = 1
+        for colour in range(WAGGON_COLOURS):
+            card_text = load_texture("ZugumZug/game/assets/img/waggons/"+colour)
+            draw_texture(card_text, WINDOW_WIDTH*colour_index, WINDOW_HEIGHT//2-card_text//2, BLACK)
+            count = current_player.waggonCards.count(colour)
+            text = measure_text_ex(BIEDERMEIER, count, FONT_SIZE, 1)
+            draw_text(colour, WINDOW_WIDTH*colour_index+card_text.width//2-text.x//2, WINDOW_HEIGHT//2-card_text.height//2-text.y, FONT_SIZE*4, WHITE)
 
 
 

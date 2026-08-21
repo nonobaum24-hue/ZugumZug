@@ -207,10 +207,15 @@ class game:
         pages.update({page_index:page})
         return pages
 
-    def show_route_cards(self):
+    def show_route_card_page(self, page):
         pages = self.sort_route_cards_into_pages()
-        for page, cards in pages:
-            
+        for cards in pages[page].values:
+            for i in cards:
+                card = load_texture(i["path"])
+                if cards.index(i) <= 3:
+                    draw_texture_ex(card, Vector2(WINDOW_WIDTH//2-card*1.5+((cards.index(i)+1)*card.width), WINDOW_HEIGHT//2-card.height*1.5), 0, SCALE, WHITE)
+                else:
+                    draw_texture_ex(card, Vector2(WINDOW_WIDTH//2-card*1.5+((cards.index(i)+1)*card.width), WINDOW_HEIGHT//2-card.height*1.5), 0, SCALE, WHITE)
 
 
 

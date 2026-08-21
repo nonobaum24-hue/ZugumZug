@@ -217,6 +217,21 @@ class game:
                 else:
                     draw_texture_ex(card, Vector2(WINDOW_WIDTH//2-card*1.5+((cards.index(i)+1)*card.width), WINDOW_HEIGHT//2-card.height*1.5), 0, SCALE, WHITE)
 
+    def draw_page_buttons(self):
+        arrow = load_texture("ZugumZug/game/assets/img/choice/arrow.png")
+        draw_texture_ex(arrow, Vector2(arrow.width*1.5, WINDOW_HEIGHT//2+arrow.height//2), 180, SCALE, WHITE)
+        rec_last_page = Rectangle(arrow.width/2, WINDOW_HEIGHT//2-arrow.height//2, arrow.width, arrow.height)
+
+        draw_texture_ex(arrow, Vector2(WINDOW_WIDTH-1.5*arrow.width, WINDOW_HEIGHT//2-arrow.height), 0, SCALE, WHITE)
+        rec_next_page = Rectangle(WINDOW_WIDTH-1.5*arrow.width, WINDOW_HEIGHT//2-arrow.height, arrow.width, arrow.height)
+
+        return rec_last_page, rec_next_page
+
+    def show_route_cards(self):
+        rec_next_page, rec_last_page = self.draw_page_buttons()
+        if is_mouse_button_pressed(rl.MOUSE_BUTTON_LEFT):
+            for i in 
+
 
 
     def game_loop(self):

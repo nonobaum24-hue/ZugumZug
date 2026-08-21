@@ -191,18 +191,27 @@ class game:
             draw_text(colour, WINDOW_WIDTH*colour_index+card_text.width//2-text.x//2, WINDOW_HEIGHT//2-card_text.height//2-text.y, FONT_SIZE*4, WHITE)
             colour_index += 1
 
-    def show_route_cards(self):
+    def sort_route_cards_into_pages(self):
         current_player = self.m.getCurrentPlayer()
         pages = {}
         page = []
-        #sort route cards into pages
         page_index = 0
         cards_index = 0
-        while True:
-            page.append(current_player[cards_index])
+        while cards_index < len(current_player.routeCards):
             if cards_index % 6 == 0:
-                page
+                page.append(current_player[cards_index])
+                pages.update({page_index:page})
+                page = []
+                page_index += 1
             cards_index += 1
+        pages.update({page_index:page})
+        return pages
+
+    def show_route_cards(self):
+        pages = self.sort_route_cards_into_pages()
+        for page, cards in pages:
+            
+
 
 
     def game_loop(self):

@@ -1,17 +1,16 @@
 from mechanicClasses import *
 
 class game:
+
     def __init__(self, pManager, board):
         self.m = pManager
         self.b = board
 
         init_window(WINDOW_WIDTH, WINDOW_HEIGHT, GAME_TITLE)
+        self.BIEDERMEIER = load_font(BIEDERMEIER_PATH)
 
         #select random first player
         self.m.currentPlayerIndex = randint(0, len(self.m.players)-1)
-
-    def ask_route_card(self, route_card):
-        pass
 
     def compute_buttons_dis_and_acc(self, x_Value):
         """Berechnet nur die Rechtecke (Position/Größe) für Discard/Accept,
@@ -162,8 +161,8 @@ class game:
                         return actions.index(action)
 
     def draw_start_button(self):
-        text = measure_text_ex(BIEDERMEIER, 'Start Round', FONT_SIZE, 1)
-        draw_text_ex(BIEDERMEIER, "Start Round", Vector2(WINDOW_WIDTH//2-text.x/2, WINDOW_HEIGHT//10), FONT_SIZE, 1, BLACK)
+        text = measure_text_ex(self.BIEDERMEIER, 'Start Round', FONT_SIZE, 1)
+        draw_text_ex(self.BIEDERMEIER, "Start Round", Vector2(WINDOW_WIDTH//2-text.x/2, WINDOW_HEIGHT//10), FONT_SIZE, 1, BLACK)
         draw_rectangle(WINDOW_WIDTH//2-text.x/2, WINDOW_HEIGHT//10, text.x, text.y, GREEN)
         return Rectangle(WINDOW_WIDTH//2-text.x/2, WINDOW_HEIGHT//10, text.x, text.y)
 
@@ -188,9 +187,22 @@ class game:
             card_text = load_texture("ZugumZug/game/assets/img/waggons/"+colour)
             draw_texture(card_text, WINDOW_WIDTH*colour_index, WINDOW_HEIGHT//2-card_text.height//2, BLACK)
             count = str(current_player.waggonCards.count(colour))
-            text = measure_text_ex(BIEDERMEIER, count, FONT_SIZE, 1)
+            text = measure_text_ex(self.BIEDERMEIER, count, FONT_SIZE, 1)
             draw_text(colour, WINDOW_WIDTH*colour_index+card_text.width//2-text.x//2, WINDOW_HEIGHT//2-card_text.height//2-text.y, FONT_SIZE*4, WHITE)
+            colour_index += 1
 
+    def show_route_cards(self):
+        current_player = self.m.getCurrentPlayer()
+        pages = {}
+        page = []
+        #sort route cards into pages
+        page_index = 0
+        cards_index = 0
+        while True:
+            page.append(current_player[cards_index])
+            if cards_index % 6 == 0:
+                page
+            cards_index += 1
 
 
     def game_loop(self):

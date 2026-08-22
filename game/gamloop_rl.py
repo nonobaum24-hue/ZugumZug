@@ -229,9 +229,7 @@ class game:
 
     def show_route_cards(self):
         rec_next_page, rec_last_page = self.draw_page_buttons()
-        if is_mouse_button_pressed(rl.MOUSE_BUTTON_LEFT):
-            for i in 
-
+        if is_mouse_button_pressed(rl.MOUSE_BUTTON_LEFT): pass
 
 
     def game_loop(self):

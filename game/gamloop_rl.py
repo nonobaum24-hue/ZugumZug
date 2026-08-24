@@ -94,8 +94,13 @@ class game:
 
             if self.check_if_everything_checked(rectangles):
                 kept = [entry['card'] for entry in rectangles.values() if entry['choice'] == 'accepted']
-                if len(kept) <= 1:
-                    pass
+                if len(kept) < 1:
+                    # Ungueltig (mindestens 1 Karte muss behalten werden) - Auswahl
+                    # zuruecksetzen, statt jeden Frame stillschweigend "pass" zu
+                    # machen (das fror den Spielzustand vorher komplett ein, weil
+                    # check_if_everything_checked() weiterhin True lieferte).
+                    for entry in rectangles.values():
+                        entry['choice'] = None
                 else:
                     self.m.handleKeepRouteCards(given_cards[current_player], kept)
                     self.m.nextPlayer()
@@ -111,27 +116,44 @@ class game:
         self.draw_ui()
         draw_rectangle(0,0,WINDOW_WIDTH, WINDOW_HEIGHT, (0,0,0,50))
 
+        # Drei Optionen nebeneinander auf 1/4, 2/4 (Mitte) und 3/4 der Fensterbreite,
+        # jeweils um die eigene Textur-Breite zentriert.
         occupy_choice = load_texture("ZugumZug/game/assets/img/choice/occupy.png")
-        draw_texture(occupy_choice, WINDOW_WIDTH//occupy_choice.width, WINDOW_HEIGHT//2-occupy_choice.height//2, WHITE)
-        rec_occupy = Rectangle(WINDOW_WIDTH//occupy_choice.width, WINDOW_HEIGHT//2-occupy_choice.height//2, occupy_choice.width, occupy_choice.height)
+        occupy_x = WINDOW_WIDTH//4 - occupy_choice.width//2
+        draw_texture(occupy_choice, occupy_x, WINDOW_HEIGHT//2-occupy_choice.height//2, WHITE)
+        rec_occupy = Rectangle(occupy_x, WINDOW_HEIGHT//2-occupy_choice.height//2, occupy_choice.width, occupy_choice.height)
 
         waggon_choice = load_texture("ZugumZug/game/assets/img/choice/waggon.png")
-        draw_texture(waggon_choice, WINDOW_WIDTH//2-waggon_choice.width//2, WINDOW_HEIGHT//2-waggon_choice.height//2, WHITE)
-        rec_waggon = Rectangle(WINDOW_WIDTH//waggon_choice.width, WINDOW_HEIGHT//2-waggon_choice.height//2, waggon_choice.width, waggon_choice.height)
+        waggon_x = WINDOW_WIDTH//2 - waggon_choice.width//2
+        draw_texture(waggon_choice, waggon_x, WINDOW_HEIGHT//2-waggon_choice.height//2, WHITE)
+        rec_waggon = Rectangle(waggon_x, WINDOW_HEIGHT//2-waggon_choice.height//2, waggon_choice.width, waggon_choice.height)
 
         route_card_choice = load_texture("ZugumZug/game/assets/img/choice/route_card.png")
-        draw_texture(route_card_choice, WINDOW_WIDTH-(WINDOW_WIDTH-route_card_choice.width*2), WINDOW_HEIGHT//2-route_card_choice.height//2, WHITE)
-        rec_route = Rectangle(WINDOW_WIDTH//route_card_choice.width, WINDOW_HEIGHT//2-route_card_choice.height//2, route_card_choice.width, route_card_choice.height)
+        route_x = WINDOW_WIDTH*3//4 - route_card_choice.width//2
+        draw_texture(route_card_choice, route_x, WINDOW_HEIGHT//2-route_card_choice.height//2, WHITE)
+        rec_route = Rectangle(route_x, WINDOW_HEIGHT//2-route_card_choice.height//2, route_card_choice.width, route_card_choice.height)
         end_drawing()
 
         return rec_occupy, rec_waggon, rec_route
+
+    def draw_all_route_recs(self):
+        """TODO: zeichnet aktuell noch nichts - die Strecken-Rechtecke fuers
+        Board sind hier noch nicht implementiert. Vorher fehlte diese Methode
+        komplett, obwohl draw_ui() sie aufruft (AttributeError)."""
+        pass
 
     def draw_ui(self):
 
         #draw Map
         europe_map = load_texture("ZugumZug/game/assets/img/main_game_ui/map.png")
-        map_scale = WINDOW_WIDTH/europe_map.width
-        draw_texture_ex(europe_map, Vector2(0,0), 0, map_scale, WHITE)
+        if europe_map.width == 0:
+            # Textur konnte nicht geladen werden (fehlendes/leeres Asset) -
+            # ohne diese Absicherung fuehrt die Division unten zu einem
+            # ZeroDivisionError.
+            print("WARNUNG: map.png konnte nicht geladen werden, Karte wird nicht gezeichnet.")
+        else:
+            map_scale = WINDOW_WIDTH/europe_map.width
+            draw_texture_ex(europe_map, Vector2(0,0), 0, map_scale, WHITE)
 
         #draw routes
         self.draw_all_route_recs()
@@ -142,12 +164,15 @@ class game:
 
         #Wagon Cards Widget
         route_card_aesth_stack = load_texture("ZugumZug/game/assets/img/main_game_ui/route_cards.png")
-        draw_texture_ex(route_card_aesth_stack, Vector2(WINDOW_WIDTH-route_card_aesth_stack,WINDOW_HEIGHT-route_card_aesth_stack.height), 0, SCALE, WHITE)
+        draw_texture_ex(route_card_aesth_stack, Vector2(WINDOW_WIDTH-route_card_aesth_stack.width,WINDOW_HEIGHT-route_card_aesth_stack.height), 0, SCALE, WHITE)
 
         #draw progress bar
         progress_bar = load_texture('ZugumZug/game/assets/img/main_game_ui/progress_bar.png')
-        bar_scale = WINDOW_WIDTH/progress_bar.width
-        draw_texture_ex(progress_bar, Vector2(0,0), 0, bar_scale, WHITE)
+        if progress_bar.width == 0:
+            print("WARNUNG: progress_bar.png konnte nicht geladen werden, Fortschrittsbalken wird nicht gezeichnet.")
+        else:
+            bar_scale = WINDOW_WIDTH/progress_bar.width
+            draw_texture_ex(progress_bar, Vector2(0,0), 0, bar_scale, WHITE)
 
 
     def choose_action(self):
@@ -181,41 +206,51 @@ class game:
             end_drawing()
 
     def show_waggon_cards(self):
+        """Zeigt alle Waggonkarten-Stapel mit Anzahl nebeneinander an.
+        Nutzt die echten Pfade aus PATHS_WAGGON_CARDS (settings.py) statt
+        eines falschen, nicht existierenden Verzeichnisses, und teilt die
+        Fensterbreite gleichmäßig auf die 8 Farben auf, statt sie mit der
+        vollen WINDOW_WIDTH weit außerhalb des Fensters zu platzieren."""
         current_player = self.m.getCurrentPlayer()
-        colour_index = 1
+        column_width = WINDOW_WIDTH // len(WAGGON_COLOURS)
+        colour_index = 0
         for colour in WAGGON_COLOURS:
-            card_text = load_texture("ZugumZug/game/assets/img/waggons/"+colour)
-            draw_texture(card_text, WINDOW_WIDTH*colour_index, WINDOW_HEIGHT//2-card_text.height//2, BLACK)
+            card_text = load_texture(PATHS_WAGGON_CARDS[colour])
+            x_pos = column_width * colour_index
+            draw_texture(card_text, x_pos, WINDOW_HEIGHT//2-card_text.height//2, BLACK)
             count = str(current_player.waggonCards.count(colour))
             text = measure_text_ex(self.BIEDERMEIER, count, FONT_SIZE, 1)
-            draw_text(colour, WINDOW_WIDTH*colour_index+card_text.width//2-text.x//2, WINDOW_HEIGHT//2-card_text.height//2-text.y, FONT_SIZE*4, WHITE)
+            draw_text(colour, int(x_pos+card_text.width//2-text.x//2), int(WINDOW_HEIGHT//2-card_text.height//2-text.y), FONT_SIZE*4, WHITE)
             colour_index += 1
 
     def sort_route_cards_into_pages(self):
+        """Teilt die Zielkarten des aktuellen Spielers in 6er-Seiten auf.
+        Vorher wurde current_player selbst statt current_player.routeCards
+        indiziert (Player ist nicht indizierbar), und es landete pro
+        6er-Block nur 1 Karte auf der Seite statt 6."""
         current_player = self.m.getCurrentPlayer()
         pages = {}
         page = []
         page_index = 0
-        cards_index = 0
-        while cards_index < len(current_player.routeCards):
-            if cards_index % 6 == 0:
-                page.append(current_player[cards_index])
-                pages.update({page_index:page})
+        for cards_index, card in enumerate(current_player.routeCards):
+            page.append(card)
+            if (cards_index + 1) % 6 == 0:
+                pages[page_index] = page
                 page = []
                 page_index += 1
-            cards_index += 1
-        pages.update({page_index:page})
+        if page:
+            pages[page_index] = page
         return pages
 
     def show_route_card_page(self, page):
+        """pages[page] ist bereits die Liste der Karten dieser Seite - .values
+        gehört zu dict, nicht zu list. Außerdem wurde 'card' (das Texture-
+        Objekt) statt 'card.width' mit 1.5 multipliziert."""
         pages = self.sort_route_cards_into_pages()
-        for cards in pages[page].values:
-            for i in cards:
-                card = load_texture(i["path"])
-                if cards.index(i) <= 3:
-                    draw_texture_ex(card, Vector2(WINDOW_WIDTH//2-card*1.5+((cards.index(i)+1)*card.width), WINDOW_HEIGHT//2-card.height*1.5), 0, SCALE, WHITE)
-                else:
-                    draw_texture_ex(card, Vector2(WINDOW_WIDTH//2-card*1.5+((cards.index(i)+1)*card.width), WINDOW_HEIGHT//2-card.height*1.5), 0, SCALE, WHITE)
+        cards = pages.get(page, [])
+        for i, card_data in enumerate(cards):
+            card = load_texture(card_data["path"])
+            draw_texture_ex(card, Vector2(WINDOW_WIDTH//2-card.width*1.5+((i+1)*card.width), WINDOW_HEIGHT//2-card.height*1.5), 0, SCALE, WHITE)
 
     def draw_page_buttons(self):
         arrow = load_texture("ZugumZug/game/assets/img/choice/arrow.png")
@@ -228,23 +263,37 @@ class game:
         return rec_last_page, rec_next_page
 
     def show_route_cards(self):
-        rec_next_page, rec_last_page = self.draw_page_buttons()
+        # draw_page_buttons() gibt (rec_last_page, rec_next_page) zurück - vorher
+        # wurde beim Entpacken die Reihenfolge vertauscht, sodass "vor" und
+        # "zurück" ihre Bedeutung tauschten.
+        rec_last_page, rec_next_page = self.draw_page_buttons()
         page = 0
         should_return = False
         while not should_return:
             self.show_route_card_page(page)
-            if is_mouse_button_pressed(rl.MOUSE_BUTTON_LEFT): 
-                mouse_pos = get_mouse_position
+            if is_mouse_button_pressed(rl.MOUSE_BUTTON_LEFT):
+                mouse_pos = get_mouse_position()
                 if check_collision_point_rec(mouse_pos, rec_next_page): page += 1
                 elif check_collision_point_rec(mouse_pos, rec_last_page): page -= 1
             elif is_key_pressed(rl.KEY_SPACE): should_return = True
 
 
+    def occupy_screen(self):
+        """TODO: Strecken-Beanspruchung ist im grafischen Loop noch nicht
+        implementiert (existiert bisher nur in der Konsolen-Variante
+        gameLoop.py als _handleClaimRoute). Platzhalter, damit game_loop
+        nicht crasht."""
+        pass
+
     def game_loop(self):
         while not window_should_close():
             self.idle_screen()
-            choice = self.choose_action
+            # choose_action() muss AUFGERUFEN werden (fehlende Klammern
+            # verglichen vorher eine Methodenreferenz mit 0/1/2, was nie
+            # zutraf). Die Ziel-Methoden hiessen ausserdem anders als die
+            # tatsaechlich definierten (show_waggon_cards/show_route_cards).
+            choice = self.choose_action()
             if choice == 0: self.occupy_screen()
-            elif choice == 1: self.draw_waggon_cards_screen
-            elif choice == 2: self.draw_route_cards_screen
-            self.m.nextplayer()
+            elif choice == 1: self.show_waggon_cards()
+            elif choice == 2: self.show_route_cards()
+            self.m.nextPlayer()

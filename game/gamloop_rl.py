@@ -229,7 +229,15 @@ class game:
 
     def show_route_cards(self):
         rec_next_page, rec_last_page = self.draw_page_buttons()
-        if is_mouse_button_pressed(rl.MOUSE_BUTTON_LEFT): pass
+        page = 0
+        should_return = False
+        while not should_return:
+            self.show_route_card_page(page)
+            if is_mouse_button_pressed(rl.MOUSE_BUTTON_LEFT): 
+                mouse_pos = get_mouse_position
+                if check_collision_point_rec(mouse_pos, rec_next_page): page += 1
+                elif check_collision_point_rec(mouse_pos, rec_last_page): page -= 1
+            elif is_key_pressed(rl.KEY_SPACE): should_return = True
 
 
     def game_loop(self):

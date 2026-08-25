@@ -12,15 +12,15 @@ class game:
         #select random first player
         self.m.currentPlayerIndex = randint(0, len(self.m.players)-1)
 
-    def compute_buttons_dis_and_acc(self, x_Value):
+    def compute_buttons_dis_and_acc(self, x_Value, y_value):
         """Berechnet nur die Rechtecke (Position/Größe) für Discard/Accept,
         zeichnet aber nichts. Wird beim Aufbau des Zustands pro Spielerzug
         gebraucht (siehe build_card_state)."""
-        text_size = measure_text('Discard', FONT_SIZE)
-        rectangle_discard = Rectangle(x_Value-text_size//2, WINDOW_HEIGHT-WINDOW_HEIGHT//4-text_size//2, text_size, FONT_SIZE *1.2)
+        text_size = measure_text_ex(self.BIEDERMEIER, 'Discard', FONT_SIZE, 1)
+        rectangle_discard = Rectangle(x_Value-text_size.x//2, y_value-text_size.y//2, text_size.x, text_size.y)
 
-        text_size = measure_text('Accept', FONT_SIZE)
-        rectangle_accept = Rectangle(x_Value-text_size//2, WINDOW_HEIGHT-WINDOW_HEIGHT//6-text_size//2, text_size, FONT_SIZE *1.2)
+        text_size = measure_text_ex(self.BIEDERMEIER, 'Accept', FONT_SIZE, 1)
+        rectangle_accept = Rectangle(x_Value-text_size.x//2, y_value + text_size.y, text_size.x, text_size.y)
 
         return rectangle_discard, rectangle_accept
 
@@ -33,8 +33,9 @@ class game:
         hashbar sind und ALL_ROUTE_CARDS-Einträge Dicts sind."""
         rectangles = {}
         x_Value = WINDOW_WIDTH // 4
+        y_Value = WINDOW_HEIGHT - WINDOW_HEIGHT//9
         for card in route_cards:
-            rec_dis, rec_acc = self.compute_buttons_dis_and_acc(x_Value)
+            rec_dis, rec_acc = self.compute_buttons_dis_and_acc(x_Value, y_Value)
             key = card["path"]
             rectangles[key] = {'card': card, 'discard_rec': rec_dis, 'accept_rec': rec_acc, 'choice': None}
             x_Value += WINDOW_WIDTH // 4
@@ -51,7 +52,7 @@ class game:
 
             rc = load_texture(card["path"])
             x_center = int(dr.x + dr.width / 2)
-            draw_texture_ex(rc, Vector2(x_center - rc.width//2, WINDOW_HEIGHT//3), 0, 0.2, WHITE)
+            draw_texture_ex(rc, Vector2(x_center - rc.width//2, WINDOW_HEIGHT//3), 0, SCALE*0.1, WHITE)
 
             #Discard Button
             draw_rectangle(int(dr.x), int(dr.y), int(dr.width), int(dr.height), RED)

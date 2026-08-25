@@ -79,7 +79,7 @@ WINDOW_WIDTH = 1280
 FONT_SIZE = 20
 BIEDERMEIER_PATH = "ZugumZug/game/assets/fonts/BiedermeierKursiv.ttf"
 
-SCALE = 5
+SCALE = WINDOW_WIDTH//1280
 
 MAP_PATH = "ZugumZug/assets/img/map/map.png"
 PATHS_WAGGON_CARDS = {

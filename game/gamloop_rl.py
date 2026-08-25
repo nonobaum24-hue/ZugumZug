@@ -51,7 +51,7 @@ class game:
 
             rc = load_texture(card["path"])
             x_center = int(dr.x + dr.width / 2)
-            draw_texture(rc, x_center - rc.width//2, WINDOW_HEIGHT//3, WHITE)
+            draw_texture_ex(rc, Vector2(x_center - rc.width//2, WINDOW_HEIGHT//3), 0, 0.2, WHITE)
 
             #Discard Button
             draw_rectangle(int(dr.x), int(dr.y), int(dr.width), int(dr.height), RED)
@@ -67,8 +67,8 @@ class game:
                 return False
         return True
 
-    def show_checked_recs(rectangles):
-        for i in rectangles.values:
+    def show_checked_recs(self, rectangles):
+        for i in rectangles.values():
             if i['choice'] == 'accepted':
                 rectangle = i['accept_rec']
                 draw_rectangle_pro(rectangle, Vector2(0,0), 0, BLACK)

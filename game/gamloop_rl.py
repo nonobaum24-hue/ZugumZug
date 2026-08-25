@@ -67,6 +67,15 @@ class game:
                 return False
         return True
 
+    def show_checked_recs(rectangles):
+        for i in rectangles.values:
+            if i['choice'] == 'accepted':
+                rectangle = i['accept_rec']
+                draw_rectangle_pro(rectangle, Vector2(0,0), 0, BLACK)
+            elif i['choice'] == 'discarded':
+                rectangle = i['discard_rec']
+                draw_rectangle_pro(rectangle, Vector2(0,0), 0, BLACK)
+
     def start_game(self):
         should_start_game = False
         given_cards = {}
@@ -81,6 +90,7 @@ class game:
             #drawing
             begin_drawing()
             self.draw_routecard_acceptance(rectangles)
+            self.show_checked_recs(rectangles)
             end_drawing()
 
             #input
@@ -95,10 +105,6 @@ class game:
             if self.check_if_everything_checked(rectangles):
                 kept = [entry['card'] for entry in rectangles.values() if entry['choice'] == 'accepted']
                 if len(kept) < 1:
-                    # Ungueltig (mindestens 1 Karte muss behalten werden) - Auswahl
-                    # zuruecksetzen, statt jeden Frame stillschweigend "pass" zu
-                    # machen (das fror den Spielzustand vorher komplett ein, weil
-                    # check_if_everything_checked() weiterhin True lieferte).
                     for entry in rectangles.values():
                         entry['choice'] = None
                 else:

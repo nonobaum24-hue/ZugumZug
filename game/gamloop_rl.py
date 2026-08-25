@@ -16,10 +16,10 @@ class game:
         """Berechnet nur die Rechtecke (Position/Größe) für Discard/Accept,
         zeichnet aber nichts. Wird beim Aufbau des Zustands pro Spielerzug
         gebraucht (siehe build_card_state)."""
-        text_size = measure_text_ex(self.BIEDERMEIER, 'Discard', FONT_SIZE, 1)
+        text_size = measure_text_ex(self.BIEDERMEIER, 'Discard', FONT_SIZE*3, 1)
         rectangle_discard = Rectangle(x_Value-text_size.x//2, y_value-text_size.y//2, text_size.x, text_size.y)
 
-        text_size = measure_text_ex(self.BIEDERMEIER, 'Accept', FONT_SIZE, 1)
+        text_size = measure_text_ex(self.BIEDERMEIER, 'Accept', FONT_SIZE*3, 1)
         rectangle_accept = Rectangle(x_Value-text_size.x//2, y_value + text_size.y, text_size.x, text_size.y)
 
         return rectangle_discard, rectangle_accept
@@ -33,7 +33,7 @@ class game:
         hashbar sind und ALL_ROUTE_CARDS-Einträge Dicts sind."""
         rectangles = {}
         x_Value = WINDOW_WIDTH // 4
-        y_Value = WINDOW_HEIGHT - WINDOW_HEIGHT//9
+        y_Value = WINDOW_HEIGHT - WINDOW_HEIGHT//5
         for card in route_cards:
             rec_dis, rec_acc = self.compute_buttons_dis_and_acc(x_Value, y_Value)
             key = card["path"]
@@ -56,11 +56,11 @@ class game:
 
             #Discard Button
             draw_rectangle(int(dr.x), int(dr.y), int(dr.width), int(dr.height), RED)
-            draw_text('Discard', int(dr.x), int(dr.y), FONT_SIZE, WHITE)
+            draw_text_ex(self.BIEDERMEIER, 'Discard', Vector2(int(dr.x), int(dr.y)), FONT_SIZE*3, 1, WHITE)
 
             #Accept Button
             draw_rectangle(int(ar.x), int(ar.y), int(ar.width), int(ar.height), GREEN)
-            draw_text('Accept', int(ar.x), int(ar.y), FONT_SIZE, WHITE)
+            draw_text_ex(self.BIEDERMEIER, 'Accept', Vector2(int(ar.x), int(ar.y)), FONT_SIZE*3, 1, WHITE)
 
     def check_if_everything_checked(self, diction):
         for entry in diction.values():

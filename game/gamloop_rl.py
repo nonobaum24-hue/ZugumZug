@@ -17,10 +17,10 @@ class game:
         zeichnet aber nichts. Wird beim Aufbau des Zustands pro Spielerzug
         gebraucht (siehe build_card_state)."""
         text_size = measure_text_ex(self.BIEDERMEIER, 'Discard', FONT_SIZE*3, 1)
-        rectangle_discard = Rectangle(x_Value-text_size.x//2, y_value-text_size.y//2, text_size.x, text_size.y)
+        rectangle_discard = Rectangle(x_Value-text_size.x, y_value-text_size.y, text_size.x*2, text_size.y*2)
 
         text_size = measure_text_ex(self.BIEDERMEIER, 'Accept', FONT_SIZE*3, 1)
-        rectangle_accept = Rectangle(x_Value-text_size.x//2, y_value + text_size.y, text_size.x, text_size.y)
+        rectangle_accept = Rectangle(x_Value-text_size.x, y_value + text_size.y, text_size.x*2, text_size.y*2)
 
         return rectangle_discard, rectangle_accept
 
@@ -55,11 +55,11 @@ class game:
             draw_texture_ex(rc, Vector2(x_center - rc.width//2, WINDOW_HEIGHT//3), 0, SCALE*0.1, WHITE)
 
             #Discard Button
-            draw_rectangle(int(dr.x), int(dr.y), int(dr.width), int(dr.height), RED)
+            draw_rectangle_rec(dr, RED)
             draw_text_ex(self.BIEDERMEIER, 'Discard', Vector2(int(dr.x), int(dr.y)), FONT_SIZE*3, 1, WHITE)
 
             #Accept Button
-            draw_rectangle(int(ar.x), int(ar.y), int(ar.width), int(ar.height), GREEN)
+            draw_rectangle_rec(ar, GREEN)
             draw_text_ex(self.BIEDERMEIER, 'Accept', Vector2(int(ar.x), int(ar.y)), FONT_SIZE*3, 1, WHITE)
 
     def check_if_everything_checked(self, diction):

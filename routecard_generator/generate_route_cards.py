@@ -25,22 +25,31 @@ from city_coords import CITY_PIXELS
 # Konfiguration
 # -----------------------------------------------------------------------
 
-TEMPLATE_PATH = "routecard_blank.png"
-FONT_PATH = "BiedermeierKursiv.ttf"
-OUTPUT_DIR = "output_cards"          # lokal zum Testen
+# Absolut statt relativ zum aktuellen Arbeitsverzeichnis - so funktioniert
+# das Skript egal von wo aus es aufgerufen wird (z.B. "python3
+# routecard_generator/generate_route_cards.py" aus dem Repo-Root).
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+REPO_ROOT = os.path.dirname(SCRIPT_DIR)
+
+TEMPLATE_PATH = os.path.join(SCRIPT_DIR, "routecard_blank.png")
+# Die Schriftart liegt nicht im routecard_generator-Ordner selbst, sondern
+# wird aus game/assets/fonts wiederverwendet (dieselbe Datei, die auch
+# gamloop_rl.py fuers Spiel laedt).
+FONT_PATH = os.path.join(REPO_ROOT, "game", "assets", "fonts", "BiedermeierKursiv.ttf")
+OUTPUT_DIR = os.path.join(SCRIPT_DIR, "output_cards")   # lokal zum Testen
 # Wenn direkt im Repo erzeugt wird (siehe run_batch.py), zeigt das hierher:
-# OUTPUT_DIR = "/home/claude/ZugumZug/game/assets/img/cards"
+# OUTPUT_DIR = os.path.join(REPO_ROOT, "game", "assets", "img", "cards")
 
 TITLE_BOX = (220, 75, 1180, 195)     # (x0, y0, x1, y1) - beschreibbarer Bereich oben
 TITLE_COLOR = (55, 35, 20)
-TITLE_MAX_FONT = 62
-TITLE_MIN_FONT = 26
+TITLE_MAX_FONT = 84
+TITLE_MIN_FONT = 34
 TITLE_LINE_GAP = 6
 
 POINTS_CENTER = (1155, 785)
 POINTS_RADIUS = 90
 POINTS_COLOR = (25, 15, 10)
-POINTS_FONT_SIZE = 78
+POINTS_FONT_SIZE = 130
 
 DOT_RADIUS = 9
 DOT_FILL = (196, 30, 30)

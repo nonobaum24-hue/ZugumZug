@@ -55,7 +55,7 @@ class game:
         hashbar sind und ALL_ROUTE_CARDS-Einträge Dicts sind."""
         rectangles = {}
         n = len(route_cards)
-        column_margin = WINDOW_WIDTH // 10
+        column_margin = WINDOW_WIDTH // 15
         usable_width = WINDOW_WIDTH - 2 * column_margin
         column_width = usable_width / n
         card_target_width = column_width * 0.75
@@ -86,7 +86,7 @@ class game:
             # Skalierung proportional zur gewünschten Zielbreite statt einem
             # festen SCALE*0.1 - so nutzt die Karte den tatsächlich
             # verfügbaren Spaltenplatz aus, egal wie groß das Originalbild ist.
-            card_scale = entry['card_target_width'] / rc.width
+            card_scale = entry['card_target_width'] / rc.width *1.2
             draw_texture_ex(rc, Vector2(x_center - (rc.width*card_scale)/2, entry['card_y']), 0, card_scale, WHITE)
 
             #Discard Button

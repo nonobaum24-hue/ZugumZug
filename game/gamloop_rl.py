@@ -12,15 +12,29 @@ class game:
         #select random first player
         self.m.currentPlayerIndex = randint(0, len(self.m.players)-1)
 
-    def compute_buttons_dis_and_acc(self, x_Value, y_value):
+    def compute_buttons_dis_and_acc(self, x_center, bottom_margin):
         """Berechnet nur die Rechtecke (Position/Größe) für Discard/Accept,
-        zeichnet aber nichts. Wird beim Aufbau des Zustands pro Spielerzug
-        gebraucht (siehe build_card_state)."""
-        text_size = measure_text_ex(self.BIEDERMEIER, 'Discard', FONT_SIZE*3, 1)
-        rectangle_discard = Rectangle(x_Value-text_size.x, y_value-text_size.y, text_size.x*2, text_size.y*2)
+        zeichnet aber nichts. Buttons sind nur ein kleines Stück größer als
+        ihr Text (Padding) und liegen mittig unter x_center. Verankert von
+        UNTEN (bottom_margin = Abstand des Accept-Buttons zum Fensterrand),
+        damit beide Buttons bei jeder Fenstergröße sichtbar bleiben, statt
+        wie vorher unten abgeschnitten zu werden. Wird beim Aufbau des
+        Zustands pro Spielerzug gebraucht (siehe build_card_state)."""
+        padding_x = FONT_SIZE
+        padding_y = FONT_SIZE // 2
+        gap_between_buttons = FONT_SIZE // 2
 
         text_size = measure_text_ex(self.BIEDERMEIER, 'Accept', FONT_SIZE*3, 1)
-        rectangle_accept = Rectangle(x_Value-text_size.x, y_value + text_size.y, text_size.x*2, text_size.y*2)
+        accept_w = text_size.x + 2*padding_x
+        accept_h = text_size.y + 2*padding_y
+        accept_y = WINDOW_HEIGHT - bottom_margin - accept_h
+        rectangle_accept = Rectangle(x_center - accept_w/2, accept_y, accept_w, accept_h)
+
+        text_size = measure_text_ex(self.BIEDERMEIER, 'Discard', FONT_SIZE*3, 1)
+        discard_w = text_size.x + 2*padding_x
+        discard_h = text_size.y + 2*padding_y
+        discard_y = accept_y - gap_between_buttons - discard_h
+        rectangle_discard = Rectangle(x_center - discard_w/2, discard_y, discard_w, discard_h)
 
         return rectangle_discard, rectangle_accept
 
@@ -29,16 +43,33 @@ class game:
         auf (Buttons + choice=None). Wichtig: das darf NICHT jeden Frame neu
         aufgerufen werden, sonst geht jede Auswahl sofort wieder verloren.
 
+        Die Spalten (eine pro Karte) werden spiegelbildlich über die
+        Fensterbreite verteilt, mit gleich großem Rand (column_margin) links
+        und rechts sowie gleich großen Abständen zwischen den Spalten - die
+        Buttons UND die Kartenbilder werden auf denselben x_center gelegt.
+        Die Kartenbreite wird proportional zur Spaltenbreite berechnet
+        (card_target_width), statt fest auf SCALE*0.1 - das war vorher immer
+        ~70px, egal wie viel Platz eigentlich da war.
+
         Nutzt card['path'] als Key statt der Karte selbst, weil Dicts nicht
         hashbar sind und ALL_ROUTE_CARDS-Einträge Dicts sind."""
         rectangles = {}
-        x_Value = WINDOW_WIDTH // 4
-        y_Value = WINDOW_HEIGHT - WINDOW_HEIGHT//5
-        for card in route_cards:
-            rec_dis, rec_acc = self.compute_buttons_dis_and_acc(x_Value, y_Value)
+        n = len(route_cards)
+        column_margin = WINDOW_WIDTH // 10
+        usable_width = WINDOW_WIDTH - 2 * column_margin
+        column_width = usable_width / n
+        card_target_width = column_width * 0.75
+        card_y = WINDOW_HEIGHT // 8
+        bottom_margin = WINDOW_HEIGHT // 12
+
+        for i, card in enumerate(route_cards):
+            x_center = column_margin + column_width * (i + 0.5)
+            rec_dis, rec_acc = self.compute_buttons_dis_and_acc(x_center, bottom_margin)
             key = card["path"]
-            rectangles[key] = {'card': card, 'discard_rec': rec_dis, 'accept_rec': rec_acc, 'choice': None}
-            x_Value += WINDOW_WIDTH // 4
+            rectangles[key] = {
+                'card': card, 'discard_rec': rec_dis, 'accept_rec': rec_acc, 'choice': None,
+                'card_target_width': card_target_width, 'card_y': card_y,
+            }
 
         return rectangles
 
@@ -52,15 +83,25 @@ class game:
 
             rc = load_texture(card["path"])
             x_center = int(dr.x + dr.width / 2)
-            draw_texture_ex(rc, Vector2(x_center - rc.width//2, WINDOW_HEIGHT//3), 0, SCALE*0.1, WHITE)
+            # Skalierung proportional zur gewünschten Zielbreite statt einem
+            # festen SCALE*0.1 - so nutzt die Karte den tatsächlich
+            # verfügbaren Spaltenplatz aus, egal wie groß das Originalbild ist.
+            card_scale = entry['card_target_width'] / rc.width
+            draw_texture_ex(rc, Vector2(x_center - (rc.width*card_scale)/2, entry['card_y']), 0, card_scale, WHITE)
 
             #Discard Button
             draw_rectangle_rec(dr, RED)
-            draw_text_ex(self.BIEDERMEIER, 'Discard', Vector2(int(dr.x), int(dr.y)), FONT_SIZE*3, 1, WHITE)
+            text_size = measure_text_ex(self.BIEDERMEIER, 'Discard', FONT_SIZE*3, 1)
+            text_x = dr.x + (dr.width - text_size.x) / 2
+            text_y = dr.y + (dr.height - text_size.y) / 2
+            draw_text_ex(self.BIEDERMEIER, 'Discard', Vector2(int(text_x), int(text_y)), FONT_SIZE*3, 1, WHITE)
 
             #Accept Button
             draw_rectangle_rec(ar, GREEN)
-            draw_text_ex(self.BIEDERMEIER, 'Accept', Vector2(int(ar.x), int(ar.y)), FONT_SIZE*3, 1, WHITE)
+            text_size = measure_text_ex(self.BIEDERMEIER, 'Accept', FONT_SIZE*3, 1)
+            text_x = ar.x + (ar.width - text_size.x) / 2
+            text_y = ar.y + (ar.height - text_size.y) / 2
+            draw_text_ex(self.BIEDERMEIER, 'Accept', Vector2(int(text_x), int(text_y)), FONT_SIZE*3, 1, WHITE)
 
     def check_if_everything_checked(self, diction):
         for entry in diction.values():
@@ -194,9 +235,11 @@ class game:
 
     def draw_start_button(self):
         text = measure_text_ex(self.BIEDERMEIER, 'Start Round', FONT_SIZE, 1)
-        draw_text_ex(self.BIEDERMEIER, "Start Round", Vector2(WINDOW_WIDTH//2-text.x/2, WINDOW_HEIGHT//10), FONT_SIZE, 1, BLACK)
-        draw_rectangle(WINDOW_WIDTH//2-text.x/2, WINDOW_HEIGHT//10, text.x, text.y, GREEN)
-        return Rectangle(WINDOW_WIDTH//2-text.x/2, WINDOW_HEIGHT//10, text.x, text.y)
+        x = int(WINDOW_WIDTH//2-text.x/2)
+        y = WINDOW_HEIGHT//10
+        draw_text_ex(self.BIEDERMEIER, "Start Round", Vector2(x, y), FONT_SIZE, 1, BLACK)
+        draw_rectangle(x, y, int(text.x), int(text.y), GREEN)
+        return Rectangle(x, y, text.x, text.y)
 
     def idle_screen(self):
         ready = False

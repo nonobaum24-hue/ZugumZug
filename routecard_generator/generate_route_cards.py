@@ -46,10 +46,14 @@ TITLE_MAX_FONT = 84
 TITLE_MIN_FONT = 34
 TITLE_LINE_GAP = 6
 
-POINTS_CENTER = (1155, 785)
-POINTS_RADIUS = 90
+POINTS_CENTER = (1230, 845)          # gemessene tatsaechliche Kreismitte in
+                                      # der Vorlage (war vorher (1155, 785),
+                                      # was spuerbar daneben lag - siehe
+                                      # Kommentar unten)
+POINTS_RADIUS = 115                  # nutzbarer Innenradius, mit etwas
+                                      # Sicherheitsabstand zum goldenen Ring
 POINTS_COLOR = (25, 15, 10)
-POINTS_FONT_SIZE = 130
+POINTS_FONT_SIZE = 250
 
 DOT_RADIUS = 9
 DOT_FILL = (196, 30, 30)

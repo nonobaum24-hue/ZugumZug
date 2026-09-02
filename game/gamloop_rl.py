@@ -157,6 +157,7 @@ class game:
                     players_handled += 1
                     if players_handled == len(self.m.players):
                         should_start_game = True
+            clear_background(BLACK)
 
     def draw_action_options(self):
         begin_drawing()

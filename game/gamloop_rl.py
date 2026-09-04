@@ -136,7 +136,7 @@ class game:
             end_drawing()
 
             #input
-            if is_mouse_button_pressed(rl.MOUSE_BUTTON_LEFT):
+            if is_mouse_button_pressed(rl.MOUSE_BUTTON_LEFT) or is_mouse_button_pressed(rl.MOUSE_BUTTON_MIDDLE):
                 mouse_pos = get_mouse_position()
                 for entry in rectangles.values():
                     if check_collision_point_rec(mouse_pos, entry['accept_rec']):
@@ -206,22 +206,6 @@ class game:
 
         #draw routes
         self.draw_all_route_recs()
-
-        #Wagon Cards Widget
-        waggon_card_aesth_stack = load_texture("ZugumZug/game/assets/img/main_game_ui/waggon_cards.png")
-        draw_texture_ex(waggon_card_aesth_stack, Vector2(0,WINDOW_HEIGHT-waggon_card_aesth_stack.height), 0, SCALE, WHITE)
-
-        #Wagon Cards Widget
-        route_card_aesth_stack = load_texture("ZugumZug/game/assets/img/main_game_ui/route_cards.png")
-        draw_texture_ex(route_card_aesth_stack, Vector2(WINDOW_WIDTH-route_card_aesth_stack.width,WINDOW_HEIGHT-route_card_aesth_stack.height), 0, SCALE, WHITE)
-
-        #draw progress bar
-        progress_bar = load_texture('ZugumZug/game/assets/img/main_game_ui/progress_bar.png')
-        if progress_bar.width == 0:
-            print("WARNUNG: progress_bar.png konnte nicht geladen werden, Fortschrittsbalken wird nicht gezeichnet.")
-        else:
-            bar_scale = WINDOW_WIDTH/progress_bar.width
-            draw_texture_ex(progress_bar, Vector2(0,0), 0, bar_scale, WHITE)
 
 
     def choose_action(self):

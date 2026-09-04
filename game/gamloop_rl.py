@@ -131,6 +131,9 @@ class game:
         while not window_should_close() and not should_start_game:
             #drawing
             begin_drawing()
+            clear_background(BLACK)
+            self.draw_ui()
+            draw_rectangle(0,0,WINDOW_WIDTH, WINDOW_HEIGHT, (0,0,0,200))
             self.draw_routecard_acceptance(rectangles)
             self.show_checked_recs(rectangles)
             end_drawing()
@@ -161,7 +164,7 @@ class game:
 
     def draw_action_options(self):
         begin_drawing()
-        clear_background(RAYWHITE)
+        clear_background(BLACK)
         self.draw_ui()
         draw_rectangle(0,0,WINDOW_WIDTH, WINDOW_HEIGHT, (0,0,0,50))
 

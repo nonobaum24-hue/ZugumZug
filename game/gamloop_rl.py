@@ -201,7 +201,7 @@ class game:
             # ZeroDivisionError.
             print("WARNUNG: map.png konnte nicht geladen werden, Karte wird nicht gezeichnet.")
         else:
-            map_scale = WINDOW_WIDTH/europe_map.width
+            map_scale = WINDOW_HEIGHT/europe_map.height
             draw_texture_ex(europe_map, Vector2(0,0), 0, map_scale, WHITE)
 
         #draw routes

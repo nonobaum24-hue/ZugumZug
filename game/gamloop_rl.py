@@ -157,7 +157,7 @@ class game:
                     players_handled += 1
                     if players_handled == len(self.m.players):
                         should_start_game = True
-            clear_background(BLACK)
+        clear_background(BLACK)
 
     def draw_action_options(self):
         begin_drawing()
@@ -219,17 +219,20 @@ class game:
                         return actions.index(action)
 
     def draw_start_button(self):
+        begin_drawing()
         text = measure_text_ex(self.BIEDERMEIER, 'Start Round', FONT_SIZE, 1)
         x = int(WINDOW_WIDTH//2-text.x/2)
         y = WINDOW_HEIGHT//10
-        draw_text_ex(self.BIEDERMEIER, "Start Round", Vector2(x, y), FONT_SIZE, 1, BLACK)
+        draw_text_ex(self.BIEDERMEIER, "Start Round", Vector2(x, y), FONT_SIZE, 1, RED)
         draw_rectangle(x, y, int(text.x), int(text.y), GREEN)
+        end_drawing()
         return Rectangle(x, y, text.x, text.y)
 
     def idle_screen(self):
         ready = False
-        while ready != True:
+        while ready != True or not window_should_close():
             begin_drawing()
+            clear_background(BLACK)
             self.draw_ui()
             start_button = self.draw_start_button()
             #input
